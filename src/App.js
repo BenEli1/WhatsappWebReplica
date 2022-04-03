@@ -2,11 +2,6 @@ import logo from './logo.svg';
 import './App.css';
 import Login from './loginPage/Login'
 function App() {
-<<<<<<< HEAD
-  return (
-    
-  );
-=======
   return (<div class="container">
   <div class="row">
   <div class="col-3" className="mainbox" >
@@ -18,7 +13,6 @@ function App() {
     </div>
   </div>
 </div>);
->>>>>>> ae934d64d5aef1863e50a3d7934f2139bbe9a071
 }
 
 export default App;
