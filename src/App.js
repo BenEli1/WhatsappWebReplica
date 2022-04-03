@@ -1,9 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import Login from './loginPage/Login'
 function App() {
   return (
-    <div id="maincomponent" className="container">
+    <div className="container">
       <div className="row">
         <div className="col-xl-3 col-lg-2 col-sm-1 mainbox">
         </div>
