@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  max-height: none;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -19,4 +20,8 @@ padding: 10px;
 .mainbox{
   position: relative;
   top: 150px;
+}
+
+#newaccount{
+  margin-top: 30px;
 }
