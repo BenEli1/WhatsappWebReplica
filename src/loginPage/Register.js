@@ -24,8 +24,8 @@ function Register(){
                     <input type="password" required class="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping"></input>
                 </div>
 
-                <div id="selectImage" class="input-group flex-nowrap">
-                    <label for="imageFromUser" class="form-label">Select Image</label>
+                <div class="input-group flex-nowrap">
+                    <div id="selectImage" for="imageFromUser" class="form-label form-control bg-light">Select Image</div>
                 </div>
                 <div id="fileLoad" class="input-group flex-nowrap">
                     <input type="file" required id="imageFromUser" class="form-control" accept="image/*" placeholder="Image" aria-label="Image" aria-describedby="addon-wrapping"></input>

@@ -36,9 +36,20 @@ margin: 10px;
 
 #selectImage{
   margin-bottom: 0px;
+  margin-right: 70%;
 }
 
 #fileLoad{
   margin-top: 0px;
   padding-top: 0px ;
 }
+
+.container{
+  margin: 0px;
+  padding: 0px;
+}
+
+body, html {
+  height: 100%;
+}
+
