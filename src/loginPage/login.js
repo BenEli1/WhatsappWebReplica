@@ -10,8 +10,9 @@ function Login(){
     <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping"></input>
   </div>
   <div>
-  <button type="button" class="btn btn-light input-group">Login</button>
+  <button type="button" class="btn btn-light input-group border-secondary">Login</button>
   </div>
+  <button type="button" id="newaccount" class="btn btn-light input-group">Creatre a new account</button>
   </div>
 );
 }
