@@ -19,9 +19,26 @@ margin: 10px;
 .mainbox{
   position: relative;
   top: 150px;
+  padding-bottom: 150px;
 }
 
 #newaccount{
   margin-top: 40px;
 }
 
+#newaccount-register{
+  margin-top: 40px;
+}
+
+#imageFromUser{
+  margin-top: 0px;
+}
+
+#selectImage{
+  margin-bottom: 0px;
+}
+
+#fileLoad{
+  margin-top: 0px;
+  padding-top: 0px ;
+}
