@@ -18,8 +18,7 @@ margin: 10px;
 
 .mainbox{
   position: relative;
-  top: 150px;
-  padding-bottom: 150px;
+  padding-top: 5%;
 }
 
 #newaccount{
@@ -45,6 +44,7 @@ margin: 10px;
 }
 
 .container{
+  max-width: none;
   margin: 0px;
   padding: 0px;
 }
