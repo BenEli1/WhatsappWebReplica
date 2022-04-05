@@ -1,5 +1,6 @@
 import { hasSelectionSupport } from "@testing-library/user-event/dist/utils";
 import { BrowserRouter, Link } from "react-router-dom";
+import $ from "jquery";
 function Register(){
     return(
         <div>
