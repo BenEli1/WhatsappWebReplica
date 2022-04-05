@@ -24,9 +24,9 @@ function Register(){
                 <div className="input-group flex-nowrap">
                     <span className="input-group-text" id="password-again-register">Password Verification</span>
                     <input type="password" name="confirm_password" id="confirm_password" required className="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping"></input>
-                    <span id='message'>
-                    </span>
                 </div>
+                <span id='message'>
+                    </span>
                 <div className="input-group flex-nowrap">
                     <div id="selectImage" className="form-label form-control bg-light">Select Image</div>
                 </div>
@@ -45,13 +45,14 @@ function Register(){
     );
 }
 $('#password, #confirm_password').on('keyup', function () {
+
     if ($('#password').val() == $('#confirm_password').val()) {
       $('#message').html('Matching').css('color', 'green');
     } else 
       $('#message').html('Not Matching').css('color', 'red');
   });
 function previewImage(){
-    console.log("oved");
+  /*  console.log("oved");
     alert("hello");
     var file = document.getElementById("file").files;
     if(file.length>0){
@@ -60,7 +61,7 @@ function previewImage(){
             document.getElementById("imageFromUser").setAttribute("src",event.target.result());
         };
 fileReader.readAsDataURL(file[0]);
-    }
+    }*/
 }
 
 function checkPassword(){
