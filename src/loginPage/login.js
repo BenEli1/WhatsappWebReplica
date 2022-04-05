@@ -16,7 +16,7 @@ function Login(){
             <button type="button submit" id="submitLogIn" className="btn btn-light input-group border-secondary">Login</button>
           </div>
         </form>
-        <Link to='/register' type="button" href="/register" id="newaccount" className="btn btn-light input-group">Creatre a new account</Link>
+        <Link to='/register' type="button" href="/register" id="newaccount" className="btn btn-light input-group">Create a new account</Link>
       </div>
 );
 }
