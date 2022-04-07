@@ -51,8 +51,8 @@ function Register(){
 
 function invalidInput(type ,massage){    
     return (
-        "<div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">" + 
-            + "<strong> invalid " + type + "! </strong>" + massage +
+        "<div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">" 
+            + "<strong> Invalid " + type + "! </strong>" + massage +
             "<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>" + 
         "</div>"
         );
@@ -94,26 +94,26 @@ function signUp(event){
 
     //check validation
     if(!isUserNameValid(userName)){
-        $('#invalidInput').append(invalidInput("username", "The username ..."));
+        $('#invalidInput').append(invalidInput("Username", "The Username must be at least 3 characters long"));
         event.preventDefault();
         return;
     }
 
     if(!isPasswordValid(password)){
         event.preventDefault();
-        $('#invalidInput').append(invalidInput("password","The passwird must contain big character and number"));
+        $('#invalidInput').append(invalidInput("Password","The Password should be 6-20 characters long and must contain big character and number"));
         return;
     }
 
     if(!isConfirmPasswordValid(password, confirmPassword)){
         event.preventDefault();
-        $('#invalidInput').append(invalidInput("password","massage..."));
+        $('#invalidInput').append(invalidInput("Password","The password does not match"));
         return;
     }
 
     if(!isImageValid(image)){
         event.preventDefault();
-        $('#invalidInput').append(invalidInput("image", "the image is bad...."));
+        $('#invalidInput').append(invalidInput("Photo", "the image is bad...."));
         return;
     }
     //if everything OK submit the function
