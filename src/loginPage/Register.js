@@ -1,5 +1,5 @@
 import { hasSelectionSupport } from "@testing-library/user-event/dist/utils";
-import { BrowserRouter, Link, Route } from "react-router-dom";
+import { BrowserRouter, Link, Route} from "react-router-dom";
 import $ from "jquery";
 import useState from 'react';
 import DataBase from '../Users/DataBase';
@@ -10,7 +10,7 @@ function Register(){
     return(
         <div>
             <span id="invalidInput"></span>
-            <form onSubmit={e => signUp(e)} id="registerForm">
+            <form onSubmit={e => signUp(e)} action="../" id="registerForm">
                 <div className="input-group flex-nowrap">
                     <span className="input-group-text">Username</span>
                     <input type="text" id="username-register" required className="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping"></input>
