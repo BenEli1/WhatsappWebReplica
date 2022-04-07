@@ -93,7 +93,7 @@ function signUp(event){
     var nickname = form.elements['nickname-register'].value;
     var password = form.elements['password'].value;
     var confirmPassword = form.elements['confirm_password'].value
-    var image = form.elements['imageFromUser']
+    var image = form.elements['imageFromUser'].value
 
     //check validation
     if(!isUserNameValid(userName)){
@@ -116,7 +116,7 @@ function signUp(event){
 
     if(!isImageValid(image)){
         event.preventDefault();
-        $('#invalidInput').append(invalidInput("Photo", "the image is bad...."));
+        $('#invalidInput').append(invalidInput("Photo", "The file is not an image"));
         return;
     }
     //if everything OK submit the function
@@ -139,8 +139,8 @@ function isUserNameValid(userName){
 
 }
 
-function isImageValid(image){
-    return true;
+function isImageValid(file){
+    return file && file.match(/\.(jpg|jpeg|png|gif)$/);
 }
 
 export default Register;
