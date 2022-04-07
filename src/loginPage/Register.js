@@ -67,14 +67,18 @@ fileReader.readAsDataURL(file[0]);
     }
     */
 
+//the function is called when the user submit the form
 function signUp(event){
+    //get the form
     const form = document.getElementById("registerForm");
+    //get the inputs from the form
     var userName = form.elements['username-register'].value;
     var nickname = form.elements['nickname-register'].value;
     var password = form.elements['password'].value;
     var confirmPassword = form.elements['confirm_password'].value
     var image = form.elements['imageFromUser']
 
+    //check validation
     if(!isUserNameValid(userName)){
         event.preventDefault();
         return;
@@ -94,7 +98,7 @@ function signUp(event){
         event.preventDefault();
         return;
     }
-
+    //if everything OK submit the function
     form.submit()
 }
 
