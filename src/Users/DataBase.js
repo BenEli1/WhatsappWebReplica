@@ -5,26 +5,15 @@ class DataBase{
         this.users = [];
     }
 
-    add(user){
-        this.add(user.userName, user.password, user.nickName, user.image);
-    }
-
     add(userName, password, nickName, image){
         this.users.push(new User(userName, password, nickName, image));
     }
 
     isUserExist(userName, password){
         for(let u in this.users){
-            if(userName === this.users[u].userName && password === this.users[u].password)
-                return true;
-        }
-        return false;
-    }
-
-    isUserExist(user){
-        for(let u in this.users){
-            if(user.userName === this.users[u].userName && user.password === this.users[u].password)
-                return true;
+           if(userName == this.users[u].userName && password == this.users[u].password){
+               return true;
+           }
         }
         return false;
     }
