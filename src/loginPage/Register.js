@@ -21,14 +21,14 @@ function Register(){
 
                 <div className="input-group flex-nowrap">
                     <span className="input-group-text" id="password-register">Password</span>
-                    <input name="password" id="password" type="password"  required className="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping"></input>
+                    <input name="password" id="password" type="password" required className="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping"></input>
                     
                 </div>
 
                 <div className="input-group flex-nowrap">
-                    <span className="input-group-text">Password Verification</span>
-                    <input type="password" name="confirm_password" id="confirm_password" required className="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping"></input>
-                    <span id='message' class="input-group-text"></span>
+                    <span className="input-group-text">Confirm Password</span>
+                    <input type="password" name="confirm_password" id="confirm_password" onKeyUp={e => matchPasswords(e)} required className="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping"></input>
+                    <span id='message' className="input-group-text"></span>
                 </div>
                 
                 
@@ -59,13 +59,15 @@ function invalidInput(type ,massage){
         );
 }
 
-$('#password, #confirm_password').on('keyup', function () {
-
-    if ($('#password').val() == $('#confirm_password').val()) {
-      $('#message').html('Matching').css('color', 'green');
-    } else 
-      $('#message').html('Not Matching').css('color', 'red');
-  });
+function matchPasswords (event) {
+    if(($('#password').val() === "") || ($('#confirm_password').val() ===  "" ))
+        $('#message').html('');
+    else if ($('#password').val() === $('#confirm_password').val()) 
+        $('#message').html('Matching').css('color', 'green');
+    else 
+        $('#message').html('Not Matching').css('color', 'red');
+   
+  };
 
 /*
 function previewImage(){
