@@ -4,7 +4,8 @@ import $ from "jquery";
 function Register(){
     return(
         <div>
-            <form onSubmit={signUp} id="registerForm">
+            <span id="invalidInput"></span>
+            <form onSubmit={e => signUp(e)} id="registerForm">
                 <div className="input-group flex-nowrap">
                     <span className="input-group-text">Username</span>
                     <input type="text" id="username-register" required className="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping"></input>
@@ -45,6 +46,14 @@ function Register(){
     );
 }
 
+function invalidInput(type ,massage){
+    return (
+        "<div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">" +
+            "<strong> invalid " + type + "!</strong> " + massage
+            + "<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>" +
+        "</div>");
+}
+
 $('#password, #confirm_password').on('keyup', function () {
 
     if ($('#password').val() == $('#confirm_password').val()) {
@@ -80,22 +89,26 @@ function signUp(event){
 
     //check validation
     if(!isUserNameValid(userName)){
+        $('#invalidInput').append(invalidInput("username", "The username ..."));
         event.preventDefault();
         return;
     }
 
     if(!isPasswordValid(password)){
         event.preventDefault();
+        $('#invalidInput').append(invalidInput("password","The passwird must contain big character and number"));
         return;
     }
 
     if(!isConfirmPasswordValid(password, confirmPassword)){
         event.preventDefault();
+        $('#invalidInput').append(invalidInput("password","massage..."));
         return;
     }
 
     if(!isImageValid(image)){
         event.preventDefault();
+        $('#invalidInput').append(invalidInput("image", "the image is bad...."));
         return;
     }
     //if everything OK submit the function
@@ -114,7 +127,7 @@ function isConfirmPasswordValid(password, confirmPassword){
 }
 
 function isUserNameValid(userName){
-    return userName.length > 0;
+    return userName.length > 3;
 
 }
 
