@@ -1,42 +1,20 @@
-class User{
-    constructor(userName, password, nickName, image){
-    this.userName = userName;
-    this.password = password;
-    this.nickName = nickName;
-    this.image = image;
-    }
-
-    get userName(){
-        return this.userName;
-    } 
-
-    get password(){
-        return this.password;
-    }
-
-    get nickName(){
-        return this.nickName;
-    }
-
-    get image(){
-        return this.image;
-    }
-}
+import User from "./User";
 
 class DataBase{
     constructor(){
         this.users = [];
     }
+
     add(user){
-        users.push(user);
+        this.add(user.userName, user.password, user.nickName, user.image);
     }
 
     add(userName, password, nickName, image){
-        users.push(User(userName, password, nickName, image));
+        this.users.push(new User(userName, password, nickName, image));
     }
 
     isUserExist(userName, password){
-        for(u in users){
+        for(let u in this.users){
             if(userName === this.users[u].userName && password === this.users[u].password)
                 return true;
         }
@@ -44,7 +22,7 @@ class DataBase{
     }
 
     isUserExist(user){
-        for(var u in users){
+        for(let u in this.users){
             if(user.userName === this.users[u].userName && user.password === this.users[u].password)
                 return true;
         }
@@ -69,3 +47,5 @@ class DataBase{
         return null;
     }
 }
+
+export default DataBase;

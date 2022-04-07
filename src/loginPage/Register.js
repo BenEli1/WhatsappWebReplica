@@ -1,8 +1,10 @@
 import { hasSelectionSupport } from "@testing-library/user-event/dist/utils";
 import { BrowserRouter, Link } from "react-router-dom";
 import $ from "jquery";
-import {useState} from 'react'
-
+import useState from 'react';
+import DataBase from '../Users/DataBase';
+import User from '../Users/User';
+import dataBase from "../Users/dataBaseObject";
 
 function Register(){
     return(
@@ -120,7 +122,8 @@ function signUp(event){
         return;
     }
     //if everything OK submit the function
-    form.submit()
+    dataBase.add(userName, password, nickname, image);
+    alert(dataBase.users.length)
 }
 
 function isPasswordValid(password){
