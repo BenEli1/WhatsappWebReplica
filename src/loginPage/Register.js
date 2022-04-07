@@ -1,6 +1,9 @@
 import { hasSelectionSupport } from "@testing-library/user-event/dist/utils";
 import { BrowserRouter, Link } from "react-router-dom";
 import $ from "jquery";
+import {useState} from 'react'
+
+
 function Register(){
     return(
         <div>
@@ -46,12 +49,13 @@ function Register(){
     );
 }
 
-function invalidInput(type ,massage){
+function invalidInput(type ,massage){    
     return (
-        "<div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">" +
-            "<strong> invalid " + type + "!</strong> " + massage
-            + "<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>" +
-        "</div>");
+        "<div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">" + 
+            + "<strong> invalid " + type + "! </strong>" + massage +
+            "<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>" + 
+        "</div>"
+        );
 }
 
 $('#password, #confirm_password').on('keyup', function () {
@@ -79,6 +83,7 @@ fileReader.readAsDataURL(file[0]);
 //the function is called when the user submit the form
 function signUp(event){
     //get the form
+    $('div').remove("#invalidInput div");
     const form = document.getElementById("registerForm");
     //get the inputs from the form
     var userName = form.elements['username-register'].value;
