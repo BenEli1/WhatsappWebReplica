@@ -21,7 +21,7 @@ function Register(){
 
                 <div className="input-group flex-nowrap">
                     <span className="input-group-text" id="password-register">Password</span>
-                    <input name="password" id="password" type="password" required className="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping"></input>
+                    <input name="password" id="password" type="password" onKeyUp={e => matchPasswords(e)} required className="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping"></input>
                     
                 </div>
 
