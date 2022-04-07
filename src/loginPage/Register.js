@@ -26,11 +26,12 @@ function Register(){
                 </div>
 
                 <div className="input-group flex-nowrap">
-                    <span className="input-group-text" id="password-again-register">Password Verification</span>
+                    <span className="input-group-text">Password Verification</span>
                     <input type="password" name="confirm_password" id="confirm_password" required className="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping"></input>
+                    <span id='message' class="input-group-text"></span>
                 </div>
-                <span id='message'>
-                    </span>
+                
+                
                 <div className="input-group flex-nowrap">
                     <div id="selectImage" className="form-label form-control bg-light">Select Image</div>
                 </div>
@@ -132,7 +133,7 @@ function isConfirmPasswordValid(password, confirmPassword){
 }
 
 function isUserNameValid(userName){
-    return userName.length > 3;
+    return userName.length >= 3;
 
 }
 
