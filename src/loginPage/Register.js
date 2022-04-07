@@ -4,15 +4,15 @@ import $ from "jquery";
 function Register(){
     return(
         <div>
-            <form onSubmit={previewImage}>
+            <form onSubmit={signUp} id="registerForm">
                 <div className="input-group flex-nowrap">
-                    <span className="input-group-text" id="username-register">Username</span>
-                    <input type="text" required className="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping"></input>
+                    <span className="input-group-text">Username</span>
+                    <input type="text" id="username-register" required className="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping"></input>
                 </div>
 
                 <div className="input-group flex-nowrap">
-                    <span className="input-group-text" id="nickname-register">Nickname</span>
-                    <input type="text" required className="form-control" placeholder="Nickname" aria-label="Nickname" aria-describedby="addon-wrapping"></input>
+                    <span className="input-group-text">Nickname</span>
+                    <input type="text" required id="nickname-register" className="form-control" placeholder="Nickname" aria-label="Nickname" aria-describedby="addon-wrapping"></input>
                 </div>
 
                 <div className="input-group flex-nowrap">
@@ -44,6 +44,7 @@ function Register(){
         </div>
     );
 }
+
 $('#password, #confirm_password').on('keyup', function () {
 
     if ($('#password').val() == $('#confirm_password').val()) {
@@ -51,8 +52,10 @@ $('#password, #confirm_password').on('keyup', function () {
     } else 
       $('#message').html('Not Matching').css('color', 'red');
   });
+
+/*
 function previewImage(){
-  /*  console.log("oved");
+    console.log("oved");
     alert("hello");
     var file = document.getElementById("file").files;
     if(file.length>0){
@@ -61,13 +64,58 @@ function previewImage(){
             document.getElementById("imageFromUser").setAttribute("src",event.target.result());
         };
 fileReader.readAsDataURL(file[0]);
-    }*/
+    }
+    */
+
+function signUp(event){
+    const form = document.getElementById("registerForm");
+    var userName = form.elements['username-register'].value;
+    var nickname = form.elements['nickname-register'].value;
+    var password = form.elements['password'].value;
+    var confirmPassword = form.elements['confirm_password'].value
+    var image = form.elements['imageFromUser']
+
+    if(!isUserNameValid(userName)){
+        event.preventDefault();
+        return;
+    }
+
+    if(!isPasswordValid(password)){
+        event.preventDefault();
+        return;
+    }
+
+    if(!isConfirmPasswordValid(password, confirmPassword)){
+        event.preventDefault();
+        return;
+    }
+
+    if(!isImageValid(image)){
+        event.preventDefault();
+        return;
+    }
+
+    form.submit()
 }
 
-function checkPassword(){
+function isPasswordValid(password){
+    /*pasword must contain ar least one number and one big character,
+    and the length can be between 6-20 characters*/
+    var regularExpression = /^(?=.*[0-9])(?=.*[A-Z])[a-zA-Z0-9!@#$%^&*]{6,20}$/
+    return regularExpression.test(password)
+}
+
+function isConfirmPasswordValid(password, confirmPassword){
+    return password === confirmPassword;
+}
+
+function isUserNameValid(userName){
+    return userName.length > 0;
 
 }
-function checkUsername(){
 
+function isImageValid(image){
+    return true;
 }
+
 export default Register;
