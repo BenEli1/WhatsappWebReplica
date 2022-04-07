@@ -1,5 +1,5 @@
 import { hasSelectionSupport } from "@testing-library/user-event/dist/utils";
-import { BrowserRouter, Link } from "react-router-dom";
+import { BrowserRouter, Link, Route } from "react-router-dom";
 import $ from "jquery";
 import useState from 'react';
 import DataBase from '../Users/DataBase';
@@ -123,7 +123,6 @@ function signUp(event){
     }
     //if everything OK submit the function
     dataBase.add(userName, password, nickname, image);
-    alert(dataBase.users.length)
 }
 
 function isPasswordValid(password){
