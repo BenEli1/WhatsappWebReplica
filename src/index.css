@@ -53,3 +53,8 @@ margin: 10px;
 body, html {
   height: 100%;
 }
+
+.nav-item{
+  margin-right: 10%;
+  margin-left: 10%;
+}

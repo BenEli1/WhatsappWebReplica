@@ -24,3 +24,7 @@
     margin: 0;
     padding: 18px 16px 10px;
 }
+
+#btnAddContact{
+    border-style: 0px;
+}
