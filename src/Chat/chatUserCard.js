@@ -1,21 +1,15 @@
+import "./CharUserCard.css"
+
 function ChatUSerCard({nickName, image}){
     return(
-        <div className="card">
-            <div className="row">
-                <div className="col-3">
-                    <img src="saharofe.jpg" className="img-fluid rounded-start"></img>
+        <div className="btn-outline-light chat_list border-dark">
+            <div className="chat_people row">
+                <div className="col-2"> 
+                    <img src="saharofe.jpg" className="imgChat img-fluid"></img>
                 </div>
-                <div className="col-9">
-                    <div className="row">
-                        <div className="card-body">
-                            <h5 className="card-title">{nickName}</h5>
-                            <div className="card-text">hi, how are you?</div>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-6"></div>
-                        <div className="col-6"><p><small class="text-muted">Last updated 3 mins ago</small></p></div>
-                    </div>
+                <div className="chat_ib col-10">
+                    <h5>{nickName}<span className="chat_date">Dec 25</span></h5>
+                    <p>hi, how are you?</p>
                 </div>
             </div>
         </div>
