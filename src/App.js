@@ -1,19 +1,16 @@
 import './App.css';
 import HomePage from './loginPage/HomePage';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Chat from './Chat/Chat';
 
 function App() {
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-xl-3 col-lg-2 col-sm-1 mainbox">
-        </div>
-        <div className="col-xl-6 col-lg-8 col-sm-10  mainbox">
-          <HomePage />
-        </div>
-        <div className="col-xl-3 col-lg-2 col-sm-1 mainbox">
-        </div>
-      </div>
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/chat" element={<Chat />} ></Route>
+      <Route path="*" element={<HomePage/>}></Route>
+    </Routes>
+    </BrowserRouter>
   );
 }
 

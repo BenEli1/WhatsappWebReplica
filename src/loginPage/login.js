@@ -6,7 +6,7 @@ function Login(){
     return(
       <div>
         <span id="userNotExist"></span>
-        <form onSubmit={e => login(e)} id="loginForm">
+        <form onSubmit={e => login(e)} action="/chat" id="loginForm">
           <div className="input-group flex-nowrap">
             <span className="input-group-text" name="userNameLog">Username</span>
             <input type="text" id="username-login" required className="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping"></input>
