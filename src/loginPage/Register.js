@@ -151,7 +151,7 @@ function isUserNameExist(userName){
 }
 
 function isImageValid(file){
-    return file && file.match(/\.(jpg|jpeg|png|gif)$/);
+    return file && file.toLowerCase().match(/\.(jpg|jpeg|png|gif)$/);
 }
 
 export default Register;

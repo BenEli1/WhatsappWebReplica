@@ -1,4 +1,3 @@
-import './App.css';
 import HomePage from './loginPage/HomePage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Chat from './Chat/Chat';
