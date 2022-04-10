@@ -5,12 +5,11 @@ import useState from 'react';
 import DataBase from '../Users/DataBase';
 import User from '../Users/User';
 import dataBase from "../Users/dataBaseObject";
-
 function Register(){
     return(
         <div>
             <span id="invalidInput"></span>
-            <form onSubmit={e => signUp(e)} action="../" id="registerForm">
+            <form onSubmit={e => signUp(e)} action="/" id="registerForm">
                 <div className="input-group flex-nowrap">
                     <span className="input-group-text">Username</span>
                     <input type="text" id="username-register" required className="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping"></input>
@@ -38,7 +37,7 @@ function Register(){
                     <div id="selectImage" className="form-label form-control bg-light">Select Image</div>
                 </div>
                 <div id="fileLoad" className="input-group flex-nowrap">
-                    <input type="file" required id="imageFromUser" className="form-control" accept="image/*" placeholder="Image" aria-label="Image" aria-describedby="addon-wrapping"></input>
+                    <input type="file" required id="imageFromUser" className="form-control" accept="image/*" placeholder="Image" aria-label="Image" aria-describedby="addon-wrapping" ></input>
                 </div>
 
                 <div>
@@ -70,6 +69,7 @@ function matchPasswords (event) {
         $('#message').html('Not Matching').css('color', 'red');
    
   };
+  //previewing the picture
 
 /*
 function previewImage(){
@@ -127,10 +127,9 @@ function signUp(event){
         return;
     }
     //if everything OK submit the function
-    console.log(userName+password+nickname+image);
+   // ImageThumb(image);
     dataBase.add(userName, password, nickname, image);
 }
-
 function isPasswordValid(password){
     /*pasword must contain ar least one number and one big character,
     and the length can be between 6-20 characters*/
@@ -159,5 +158,35 @@ function isUserNameExist(userName){
 function isImageValid(file){
     return file && file.toLowerCase().match(/\.(jpg|jpeg|png|gif)$/);
 }
+/*
+function FileUpload() {
+  // State to store uploaded file
+  const [file, setFile] = React.useState("");
+
+  // Handles file upload event and updates state
+  function handleUpload(event) {
+    setFile(event.target.files[0]);
+
+    // Add code here to upload file to server
+    // ...
+  }
+
+  return (
+    <div id="upload-box">
+      <input type="file" onChange={handleUpload} />
+      <p>Filename: {file.name}</p>
+      <p>File type: {file.type}</p>
+      <p>File size: {file.size} bytes</p>
+      {file && <ImageThumb image={file} />}
+    </div>
+  );
+}
+*/
+/**
+ * Component to display thumbnail of image.
+ *//*
+const ImageThumb = ({ image }) => {
+  return <img src={URL.createObjectURL(image)} alt={image.name} />;
+};*/
 
 export default Register;
