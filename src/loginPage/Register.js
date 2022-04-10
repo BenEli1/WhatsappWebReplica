@@ -103,22 +103,27 @@ function signUp(event){
         event.preventDefault();
         return;
     }
+    if(!isUserNameExist(userName)){
+        $('#invalidInput').append(invalidInput("Username", "Username already in use"));
+        event.preventDefault();
+        return;
+    }
 
     if(!isPasswordValid(password)){
         event.preventDefault();
-        $('#invalidInput').append(invalidInput("Password","The Password should be 6-20 characters long and must contain big character and number"));
+        $('#invalidInput').append(invalidInput("Password","The Password should be 6-20 characters long and must contain numbers and Capital letters"));
         return;
     }
 
     if(!isConfirmPasswordValid(password, confirmPassword)){
         event.preventDefault();
-        $('#invalidInput').append(invalidInput("Password","The password does not match"));
+        $('#invalidInput').append(invalidInput("Password","The passwords does not match"));
         return;
     }
 
     if(!isImageValid(image)){
         event.preventDefault();
-        $('#invalidInput').append(invalidInput("Photo", "The file is not an image"));
+        $('#invalidInput').append(invalidInput("Photo", "The file inserted is not an image"));
         return;
     }
     //if everything OK submit the function
@@ -137,6 +142,10 @@ function isConfirmPasswordValid(password, confirmPassword){
 }
 
 function isUserNameValid(userName){
+    return userName.length >= 3;
+
+}
+function isUserNameExist(userName){
     return userName.length >= 3;
 
 }
