@@ -91,15 +91,15 @@ function signUp(event){
     $('div').remove("#invalidInput div");
     const form = document.getElementById("registerForm");
     //get the inputs from the form
-    var userName = form.elements['username-register'].value;
-    var nickname = form.elements['nickname-register'].value;
-    var password = form.elements['password'].value;
-    var confirmPassword = form.elements['confirm_password'].value
-    var image = form.elements['imageFromUser'].value
+    let userName = form.elements['username-register'].value;
+    let nickname = form.elements['nickname-register'].value;
+    let password = form.elements['password'].value;
+    let confirmPassword = form.elements['confirm_password'].value
+    let image = form.elements['imageFromUser'].value
 
     //check validation
     if(!isUserNameValid(userName)){
-        $('#invalidInput').append(invalidInput("Username", "The Username must be at least 3 characters long"));
+        $('#invalidInput').append(invalidInput("Username", "The username must be at least 3 characters long"));
         event.preventDefault();
         return;
     }
@@ -111,7 +111,7 @@ function signUp(event){
 
     if(!isPasswordValid(password)){
         event.preventDefault();
-        $('#invalidInput').append(invalidInput("Password","The Password should be 6-20 characters long and must contain numbers and Capital letters"));
+        $('#invalidInput').append(invalidInput("Password","The password should be 6-20 characters long and must contain numbers and capital letters"));
         return;
     }
 
@@ -127,6 +127,7 @@ function signUp(event){
         return;
     }
     //if everything OK submit the function
+    console.log(userName+password+nickname+image);
     dataBase.add(userName, password, nickname, image);
 }
 

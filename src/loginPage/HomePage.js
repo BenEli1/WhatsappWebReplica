@@ -4,6 +4,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 function HomePage(){
     return(
+      
       <div className="container">
         <div className="row">
           <div className="col-xl-3 col-lg-2 col-sm-1 mainbox">
