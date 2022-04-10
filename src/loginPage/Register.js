@@ -146,7 +146,12 @@ function isUserNameValid(userName){
 
 }
 function isUserNameExist(userName){
-    return userName.length >= 3;
+        for(let u in dataBase.users){
+            if(userName == dataBase.users[u].userName){
+                return false;
+            }
+         }
+         return true;
 
 }
 
