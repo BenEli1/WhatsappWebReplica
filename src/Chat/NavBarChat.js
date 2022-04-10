@@ -1,5 +1,4 @@
 import {Link} from 'react-router-dom'
-import dataBase from "../Users/dataBaseObject";
 
 function NavBarChat(){
     return(
@@ -25,13 +24,5 @@ function NavBarChat(){
             </div>
         </nav>
     );
-}
-function checkUser(user){
-    for(let u in this.users){
-        if(userName == this.users[u].userName){
-            return true;
-        }
-     }
-     return false;
 }
 export default NavBarChat;

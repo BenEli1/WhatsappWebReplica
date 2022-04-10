@@ -1,8 +1,7 @@
 import ChatUSerCard from "./chatUserCard";
 import NavBarChat from "./NavBarChat";
-import "Chat.css"
 function Chat(){
-    return(
+    return(0);}/*
         <div className="container" id="Chat">
             <div className="row">
                 <div className="col-xl-4 col-lg-4 col-sm-4 col-4" id="leftChat">
@@ -24,9 +23,6 @@ function Chat(){
                 <div className="col-xl-0 col-lg-0 col-sm-0 col-0">
                 </div>
             </div>
-        </div>
-    );
-}
-
+        </div>*/
 
 export default Chat;
