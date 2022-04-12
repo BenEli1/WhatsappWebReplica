@@ -4,10 +4,11 @@ import Messages from "./Messages";
 import { Route, Routes } from "react-router-dom";
 import $ from "jquery";
 import Chatusers from "./Chatusers";
+import {useState} from 'react'
 
 function Chat(){
 
-    var userName ="Sahar"
+    const [cardsList, setCardsList] = useState([])
 
     return(
         <div className="container" id="Chat">
@@ -17,7 +18,7 @@ function Chat(){
                      <NavBarChat />
                     </div>
                     <div className="row">
-                        <Chatusers />
+                        <Chatusers cards={cardsList} />
                     </div>
                 </div>
                 <div className="col-xl-8 col-lg-8 col-sm-8 col-8" id="rightChat">

@@ -4,6 +4,7 @@ import React from 'react';
 import 'bootstrap';
 import ChatUSerCard from './chatUserCard';
 import dataBase from '../Users/dataBaseObject';
+import Chat from './chat';
 function NavBarChat(){
     return(
         <nav id="navbar1" data-bs-spy="scroll" className="navbar navbar-expand-lg navbar-light bg-light">
@@ -61,7 +62,7 @@ function addContact(e){
     let user = (dataBase.getUserByNickName(nickname));
     let img = user.image;
     alert(img);
-    $("#chatUserList").append(`${<ChatUSerCard />}`);
+    setCardsList(<ChatUSerCard />)
 }
 
 
