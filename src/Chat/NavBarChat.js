@@ -2,7 +2,8 @@ import {Link} from 'react-router-dom'
 import $ from "jquery";
 import React from 'react';
 import 'bootstrap';
-
+import ChatUSerCard from './chatUserCard';
+import dataBase from '../Users/dataBaseObject';
 function NavBarChat(){
     return(
         <nav id="navbar1" data-bs-spy="scroll" className="navbar navbar-expand-lg navbar-light bg-light">
@@ -30,7 +31,7 @@ function NavBarChat(){
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" onClick={e => addContact(e)} class="btn btn-primary" data-bs-dismiss="modal">Add</button>
+        <button type="button" onClick={e => addContact(e)} class="btn btn-primary" >Add</button>
       </div>
     </div>
   </div>
@@ -55,11 +56,11 @@ function NavBarChat(){
 }
 
 function addContact(e){
-    let nickName = $("#floatingInput").val;
-    let user = (getUserByNickName(nickName));
+    let nickname = $("#floatingInput").val;
+    let user = (dataBase.getUserByNickName(nickname));
     let img = user.img();
     if(img){
-
+$("#chatUserList").append(<ChatUSerCard nickName={nickname} image={img}/>);
     }
 }
 export default NavBarChat;
