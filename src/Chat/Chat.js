@@ -6,7 +6,7 @@ function Chat(){
             <div className="row">
                 <div className="col-xl-4 col-lg-4 col-sm-4 col-4" id="leftChat">
                     <div className="row">
-                        <NavBarChat />
+                     <NavBarChat />
                     </div>
                     <div className="row">
                     <ChatUSerCard nickName="sahar" />

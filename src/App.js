@@ -1,6 +1,7 @@
 import HomePage from './LoginPage/HomePage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Chat from './Chat/Chat';
+import 'bootstrap';
 
 function App() {
   return (
