@@ -4,8 +4,9 @@ import React from 'react';
 import 'bootstrap';
 import ChatUSerCard from './chatUserCard';
 import dataBase from '../Users/dataBaseObject';
-import Chat from './chat';
-function NavBarChat(){
+import dataBaseMessages from '../Users/dataBaseMessages';
+import Chat from './Chat';
+function NavBarChat({func}){
     return(
         <nav id="navbar1" data-bs-spy="scroll" className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
@@ -32,7 +33,7 @@ function NavBarChat(){
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" onClick={e => addContact(e)} class="btn btn-primary" >Add</button>
+        <button type="button" onClick={e => addContact(func)} class="btn btn-primary" >Add</button>
       </div>
     </div>
   </div>
@@ -56,13 +57,13 @@ function NavBarChat(){
     );
 }
 
-function addContact(e){
+function addContact(func){
     let nickname = document.getElementById('floatingInput').value;
     alert(nickname);
     let user = (dataBase.getUserByNickName(nickname));
     let img = user.image;
     alert(img);
-    setCardsList(<ChatUSerCard />)
+    func(nickname,img);
 }
 
 
