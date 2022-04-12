@@ -56,11 +56,15 @@ function NavBarChat(){
 }
 
 function addContact(e){
-    let nickname = $("#floatingInput").val;
+    let nickname = document.getElementById('floatingInput').value;
+    alert(nickname);
     let user = (dataBase.getUserByNickName(nickname));
-    let img = user.img();
-    if(img){
-$("#chatUserList").append(<ChatUSerCard nickName={nickname} image={img}/>);
-    }
+    let img = user.image;
+    alert(img);
+    $("#chatUserList").append(`${<ChatUSerCard />}`);
 }
+
+
 export default NavBarChat;
+
+//nickName={nickname} image={img} date="0"
