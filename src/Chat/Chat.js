@@ -10,8 +10,9 @@ function Chat(){
 
     const [cardsList, setCardsList] = useState(dataBaseMessages);
 
-    function setDbMessages(nickName,Image){
-        setCardsList(cardsList.push(nickName,Image));
+    const doSearch = function(n, i){
+        alert("starttt");
+        setCardsList(cardsList.push({nickName :n, img :i }));
     }
 
     return(
@@ -19,17 +20,13 @@ function Chat(){
             <div className="row">
                 <div className="col-xl-4 col-lg-4 col-sm-4 col-4" id="leftChat">
                     <div className="row">
-                     <NavBarChat func={setDbMessages} />
+                     <NavBarChat doSearch={doSearch} />
                     </div>
                     <div className="row">
                         <Chatusers cards={cardsList} />
                     </div>
                 </div>
-                <div className="col-xl-8 col-lg-8 col-sm-8 col-8" id="rightChat">
-                <Routes>
-             
-            </Routes>
-                   
+                <div className="col-xl-8 col-lg-8 col-sm-8 col-8" id="rightChat">           
                 </div>
                 <div className="col-xl-0 col-lg-0 col-sm-0 col-0">
                 </div>

@@ -1,6 +1,3 @@
 
-var dataBaseMessages = [{img: "saharofe.png", nickName: "sahar"},
- {img: "saharofe.png", nickName: "ben"},
-  {img: "saharofe.png", nickName: "hemi"}];
-
+const dataBaseMessages = [{nickName :"sahar", img :"saharofe.jpg"}];
 export default dataBaseMessages;

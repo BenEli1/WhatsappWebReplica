@@ -2,14 +2,13 @@ import ChatUSerCard from "./chatUserCard";
 import dataBase from "../Users/dataBaseObject";
 import dataBaseMessages from "../Users/dataBaseMessages";
 function Chatusers({cards}){
-
-    const cardUserItam = dataBaseMessages.map((nickName, image)=>
-    {return <ChatUSerCard image={image} nickName={nickName} date="hh" />}
-    ) ;
+    const cardsList = cards.map((person,key) =>
+    {return <ChatUSerCard {...person} key={key} />}
+    );
 
     return(
-        <div id="chatUserList">
-            {cards}
+        <div>
+            {cardsList}
         </div>
     );
 }
