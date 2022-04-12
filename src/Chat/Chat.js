@@ -1,6 +1,12 @@
 import ChatUSerCard from "./chatUserCard";
 import NavBarChat from "./NavBarChat";
+import Messages from "./Messages";
+import { Route, Routes } from "react-router-dom";
+import $ from "jquery";
 function Chat(){
+
+    var userName ="Sahar"
+
     return(
         <div className="container" id="Chat">
             <div className="row">
@@ -22,6 +28,11 @@ function Chat(){
                     </div>
                 </div>
                 <div className="col-xl-8 col-lg-8 col-sm-8 col-8" id="rightChat">
+                <Routes>
+              <Route path={`/Chat?userName=${userName}`} element={ <Messages/>}>
+              </Route>
+            </Routes>
+                   
                 </div>
                 <div className="col-xl-0 col-lg-0 col-sm-0 col-0">
                 </div>
