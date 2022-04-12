@@ -9,7 +9,7 @@ function Register(){
     return(
         <div>
             <span id="invalidInput"></span>
-            <form onSubmit={e => signUp(e)} action="/" id="registerForm">
+            <form onSubmit={e => signUp(e)}  id="registerForm">
                 <div className="input-group flex-nowrap">
                     <span className="input-group-text">Username</span>
                     <input type="text" id="username-register" required className="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping"></input>
@@ -40,6 +40,7 @@ function Register(){
                     <input type="file" required id="imageFromUser" className="form-control" accept="image/*" placeholder="Image" aria-label="Image" aria-describedby="addon-wrapping" ></input>
                 </div>
 
+                <div id="liveAlertPlaceholder"></div>
                 <div>
                     <button type="submit"  id="sign" className="btn btn-light input-group border-secondary">Sign Up</button>
                 </div>
@@ -51,7 +52,6 @@ function Register(){
         
     );
 }
-
 function invalidInput(type ,massage){    
     return (
         "<div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">" 
@@ -129,8 +129,21 @@ function signUp(event){
     }
     //if everything OK submit the function
    // ImageThumb(image);
+   
     dataBase.add(userName, password, nickname, image);
+    event.preventDefault();
+    var alertPlaceholder = document.getElementById('liveAlertPlaceholder');
+var alertTrigger = document.getElementById('sign');
+function alert(message, type) {
+    var wrapper = document.createElement('div')
+    wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+  
+    alertPlaceholder.append(wrapper)
+  }
+  setTimeout( function ( ) { alert( 'You have registered successfully','success' ); }, 0 );
 }
+
+
 function isPasswordValid(password){
     /*pasword must contain ar least one number and one big character,
     and the length can be between 6-20 characters*/
