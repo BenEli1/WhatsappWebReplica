@@ -3,10 +3,10 @@ function MessageBox(){
     return(
 
 <div class="input-group mb-3">
-  <div class="input-group-prepend">
+  <input type="text" class="form-control" placeholder="Write here" aria-label="Write here" aria-describedby="basic-addon2"></input>
+  <div class="input-group-append">
     <button class="btn btn-outline-secondary" type="button">Button</button>
   </div>
-  <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1"></input>
 </div>
     );
 }

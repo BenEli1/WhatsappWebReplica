@@ -48,6 +48,7 @@ function Register(){
                 <Link to="/" type="button" id="newaccount-register" className="btn btn-light input-group">Already have an account?</Link>
             </div>
         </div>
+        
     );
 }
 
