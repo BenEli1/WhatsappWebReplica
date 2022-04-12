@@ -4,11 +4,11 @@ import React from 'react';
 import 'bootstrap';
 import ChatUSerCard from './chatUserCard';
 import dataBase from '../Users/dataBaseObject';
-import dataBaseMessages from '../Users/dataBaseMessages';
+import dataBaseMessages from "./dataBaseMessages.json"
 import Chat from './Chat';
 function NavBarChat({doSearch}){
 
-    const addContact = function(){
+    const addContact = function(e){
         let nickname = document.getElementById('floatingInput').value;
         alert(nickname);
         let user = (dataBase.getUserByNickName(nickname));
@@ -43,7 +43,7 @@ function NavBarChat({doSearch}){
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" onClick={addContact} className="btn btn-primary" >Add</button>
+                                <button type="button" onClick={e =>addContact(e)} className="btn btn-primary" >Add</button>
                             </div>
                         </div>
                     </div>

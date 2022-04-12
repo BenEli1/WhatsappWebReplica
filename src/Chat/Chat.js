@@ -5,14 +5,20 @@ import { Route, Routes } from "react-router-dom";
 import $ from "jquery";
 import Chatusers from "./Chatusers";
 import {useState} from 'react'
-import dataBaseMessages from "../Users/dataBaseMessages";
-function Chat(){
+import dataBaseMessages from "./dataBaseMessages.json"
 
-    const [cardsList, setCardsList] = useState(dataBaseMessages);
+function Chat(){
+    let data = dataBaseMessages.dataBaseMessages;
+    const [cardsList, setCardsList] = useState(data);
 
     const doSearch = function(n, i){
-        alert("starttt");
-        setCardsList(cardsList.push({nickName :n, img :i }));
+        let newChat = {
+            "nickName" : n, "img": i
+        }
+        //alert(data)
+        data.push(newChat)
+        setCardsList(data);
+        //alert(JSON.stringify(data));
     }
 
     return(
@@ -23,7 +29,7 @@ function Chat(){
                      <NavBarChat doSearch={doSearch} />
                     </div>
                     <div className="row">
-                        <Chatusers cards={cardsList} />
+                        <Chatusers cardsList={cardsList} />
                     </div>
                 </div>
                 <div className="col-xl-8 col-lg-8 col-sm-8 col-8" id="rightChat">           
