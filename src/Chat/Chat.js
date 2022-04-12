@@ -5,17 +5,21 @@ import { Route, Routes } from "react-router-dom";
 import $ from "jquery";
 import Chatusers from "./Chatusers";
 import {useState} from 'react'
-
+import dataBaseMessages from "../Users/dataBaseMessages";
 function Chat(){
 
-    const [cardsList, setCardsList] = useState([])
+    const [cardsList, setCardsList] = useState(dataBaseMessages);
+
+    function setDbMessages(nickName,Image){
+        setCardsList(cardsList.push(nickName,Image));
+    }
 
     return(
         <div className="container" id="Chat">
             <div className="row">
                 <div className="col-xl-4 col-lg-4 col-sm-4 col-4" id="leftChat">
                     <div className="row">
-                     <NavBarChat />
+                     <NavBarChat func={setDbMessages} />
                     </div>
                     <div className="row">
                         <Chatusers cards={cardsList} />
@@ -23,8 +27,7 @@ function Chat(){
                 </div>
                 <div className="col-xl-8 col-lg-8 col-sm-8 col-8" id="rightChat">
                 <Routes>
-              <Route path={`/Chat?userName=${userName}`} element={ <Messages/>}>
-              </Route>
+             
             </Routes>
                    
                 </div>
@@ -36,3 +39,5 @@ function Chat(){
 }
 
 export default Chat;
+/* <Route path={`/Chat?userName=$`} element={ <Messages/>}>
+              </Route>*/
