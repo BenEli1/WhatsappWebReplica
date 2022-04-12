@@ -45,6 +45,7 @@ margin: 10px;
 
 .container{
   max-width: none;
+  height: 100%;
   margin: 0px;
   padding: 0px;
 }
@@ -55,14 +56,21 @@ body, html {
   overflow-x: hidden;
 }
 
+#root{
+  height: 100%;
+}
+
 .nav-item{
   margin-right: 10%;
   margin-left: 10%;
 }
 
 #leftChat{
+  height:100%;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
+
 
 .massageCardAccepted{
   margin-left: 40%;

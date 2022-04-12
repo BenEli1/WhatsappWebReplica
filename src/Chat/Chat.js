@@ -4,26 +4,26 @@ import Messages from "./Messages";
 import { Route, Routes } from "react-router-dom";
 import $ from "jquery";
 import Chatusers from "./Chatusers";
-import {useState} from 'react'
+import React,{useState} from 'react'
 import dataBaseMessages from "./dataBaseMessages.json"
 
 function Chat(){
-    let data = dataBaseMessages.dataBaseMessages;
+
+    var data = dataBaseMessages.dataBaseMessages;
     const [cardsList, setCardsList] = useState(data);
+    const [changeState , setChangeState] = useState(false)
 
     const doSearch = function(n, i){
         let newChat = {
             "nickName" : n, "img": i
         }
-        //alert(data)
         data.push(newChat)
         setCardsList(data);
-        //alert(JSON.stringify(data));
+        setChangeState(!changeState)
     }
 
     return(
         <div className="container" id="Chat">
-            <div className="row">
                 <div className="col-xl-4 col-lg-4 col-sm-4 col-4" id="leftChat">
                     <div className="row">
                      <NavBarChat doSearch={doSearch} />
@@ -37,7 +37,6 @@ function Chat(){
                 <div className="col-xl-0 col-lg-0 col-sm-0 col-0">
                 </div>
             </div>
-        </div>
     );
 }
 
