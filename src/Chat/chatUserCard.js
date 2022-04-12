@@ -2,7 +2,11 @@ import React from "react";
 import "./CharUserCard.css"
 
 class ChatUSerCard extends React.Component{
-    constructor(props) {
+    state={
+        name: '',
+        img: ''
+    }
+        constructor(props) {
         super(props);
     }
     render(){
@@ -23,5 +27,3 @@ class ChatUSerCard extends React.Component{
 }
 
 export default ChatUSerCard;
-
-//{nickName, image, date}
