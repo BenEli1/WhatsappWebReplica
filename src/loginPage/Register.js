@@ -147,7 +147,7 @@ function isUserNameValid(userName){
 }
 function isUserNameExist(userName){
         for(let u in dataBase.users){
-            if(userName == dataBase.users[u].userName){
+            if(userName === dataBase.users[u].userName){
                 return false;
             }
          }
