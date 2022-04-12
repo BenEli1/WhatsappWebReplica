@@ -24,13 +24,13 @@ function NavBarChat(){
       </div>
       <div class="modal-body">
       <div class="form-floating mb-3">
-  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"></input>
+  <input type="text" class="form-control" id="floatingInput" placeholder="nickname"></input>
   <label for="floatingInput">Contact's Identifier</label>
 </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Add</button>
+        <button type="button" onClick={e => addContact(e)} class="btn btn-primary" data-bs-dismiss="modal">Add</button>
       </div>
     </div>
   </div>
@@ -54,4 +54,12 @@ function NavBarChat(){
     );
 }
 
+function addContact(e){
+    let nickName = $("#floatingInput").val;
+    let user = (getUserByNickName(nickName));
+    let img = user.img();
+    if(img){
+
+    }
+}
 export default NavBarChat;
