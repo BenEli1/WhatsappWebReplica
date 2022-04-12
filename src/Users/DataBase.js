@@ -28,6 +28,15 @@ class DataBase{
         return null;
     }
 
+    getUserByNickName(nickName){
+        for(var u in this.users){
+            if(this.users[u].nickName === nickName){
+                return this.users[u];
+            }
+        }
+        return null;
+    }
+
     getUserByPassword(password){
         for(var u in this.users){
             if(this.users[u].password === password){
