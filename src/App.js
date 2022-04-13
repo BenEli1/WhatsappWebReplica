@@ -11,17 +11,16 @@ function App() {
   let path = '/chat?userName=' + userName;
 
   const changeUser = function(user){
-    setChangeUser(!changeUSer);
+    //setChangeUser(!changeUSer);
     setUserName(user);
-    alert(userName)
-    alert(path)
     setChangeUser(!changeUSer);
   }
+    
 
   return (
     <BrowserRouter>
     <Routes>
-      <Route path={'/chat?userName=' + userName}  id="path" element={<Chat />}></Route>
+      <Route path='/chat' element={<Chat UserName={userName} />}></Route>
       <Route path="*" element={<HomePage change={changeUser} />}></Route>
     </Routes>
     </BrowserRouter>

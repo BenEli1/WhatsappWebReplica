@@ -26,7 +26,7 @@ function Chat({UserName}){
         <div className="container" id="Chat">
                 <div className="col-xl-4 col-lg-4 col-sm-4 col-4" id="leftChat">
                     <div className="row">
-                     <NavBarChat doSearch={doSearch} userName={UserName}/>
+                     <NavBarChat doSearch={doSearch} UserName={UserName}/>
                     </div>
                     <div className="row">
                         <Chatusers cardsList={cardsList} />
