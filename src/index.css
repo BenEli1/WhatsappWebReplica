@@ -71,6 +71,20 @@ body, html {
   overflow-x: hidden;
 }
 
+#rightChat{
+  height: 100%;
+}
+
+#ContactsRow{
+  height: 100%;
+}
+
+#inputMessage{
+  max-width: 63%;
+  position:fixed;
+  bottom: 0px;
+}
+
 
 .massageCardAccepted{
   margin-left: 40%;

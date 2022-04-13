@@ -6,7 +6,7 @@ import $ from "jquery";
 import Chatusers from "./Chatusers";
 import React,{useState} from 'react'
 import dataBaseMessages from "./dataBaseMessages.json"
-import MessageBox from "./MessageBox";
+import InputMessage from "./InputMessage";
 
 function Chat({UserName}){
 
@@ -34,6 +34,7 @@ function Chat({UserName}){
 
     return(
         <div className="container" id="Chat">
+            <div className="row" id="ContactsRow">
                 <div className="col-xl-4 col-lg-4 col-sm-4 col-4" id="leftChat">
                     <div className="row">
                      <NavBarChat doSearch={doSearch} cardsList={cardsList} UserName={UserName}/>
@@ -43,9 +44,10 @@ function Chat({UserName}){
                     </div>
                 </div>
                 <div className="col-xl-8 col-lg-8 col-sm-8 col-8" id="rightChat"> 
-                <MessageBox  />   
+                <InputMessage />   
                 </div>
                 <div className="col-xl-0 col-lg-0 col-sm-0 col-0">
+                </div>
                 </div>
             </div>
     );
