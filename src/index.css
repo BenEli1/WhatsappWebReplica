@@ -73,6 +73,8 @@ body, html {
 
 #rightChat{
   height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .imagesms{
@@ -87,6 +89,10 @@ body, html {
   max-width: 63%;
   position:fixed;
   bottom: 0px;
+}
+
+#massageBox{
+  
 }
 
 

@@ -1,5 +1,4 @@
-import MessageCardAccepted from "./MessageCardAccepted";
-import MessageCardSent from "./MessageCardSent";
+import MessageCard from "./MessageCard";
 
 function MessageBox({user, contact, cardsList}){
 
@@ -21,16 +20,11 @@ function MessageBox({user, contact, cardsList}){
 
     const messages = (cardsList.at(findIndexContact())["messages"]).map((message,key)=>
     {
-        if(message.inout == "in"){
-            return <MessageCardAccepted {...message} key={key} />
-        }
-        else{
-            return <MessageCardSent {...message} key={key} />
-        }
+            return <MessageCard {...message} key={key} />
     });
 
     return(
-        <div>
+        <div id="massageBox">
         {rend()}
         </div>
     );

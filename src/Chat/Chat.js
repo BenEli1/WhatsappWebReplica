@@ -1,6 +1,5 @@
 import ChatUSerCard from "./chatUserCard";
 import NavBarChat from "./NavBarChat";
-import Messages from "./Messages";
 import { Route, Routes } from "react-router-dom";
 import $ from "jquery";
 import Chatusers from "./Chatusers";
