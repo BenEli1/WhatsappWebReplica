@@ -1,4 +1,4 @@
-
+import dataBaseMessages from "./dataBaseMessages.json"
 import $ from 'jquery';
 import jQuery from "jquery";
 import bootstrap from 'bootstrap';
