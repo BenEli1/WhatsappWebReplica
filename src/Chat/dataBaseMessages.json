@@ -7,10 +7,25 @@
                     "img": "saharofe.jpg",
                     "messages" : [
                         {
-                            "type" : "a",
-                            "text" : "a",
+                            "type" : "image",
+                            "text" : "saharofe.jpg",
+                            "inout" : "out",
+                            "time" : "10:00",
+                            "date" : "Jun 10"
+                        },
+                        {
+                            "type" : "text",
+                            "text" : "hii ben, how are you fgdvfdfewcfdhdsiughfieusyvhutincsdnguescnfvtruirchniugvhneisuxfnchtuicfhnesrivgbhweiucbrenuixcnfdhiugfwenhcvyugrebhnxdiuhvrei?",
+                            "inout" : "out",
+                            "time" : "9:00",
+                            "date" : "Jun 11"
+                        },
+                        {
+                            "type" : "text",
+                            "text" : "workinggg",
                             "inout" : "in",
-                            "time" : "a"
+                            "time" : "10:00",
+                            "date" : "Jun 10"
                         }
                     ]
                 },
@@ -19,10 +34,25 @@
                     "img": "saharofe.jpg",
                     "messages" : [
                         {
-                            "type" : "a",
-                            "text" : "a",
+                            "type" : "text",
+                            "text" : "hii ben",
                             "inout" : "in",
-                            "time" : "a"
+                            "time" : "10:00",
+                            "date" : "Jun 10"
+                        },
+                        {
+                            "type" : "text",
+                            "text" : "hii ben",
+                            "inout" : "out",
+                            "time" : "10:00",
+                            "date" : "Jun 10"
+                        },
+                        {
+                            "type" : "text",
+                            "text" : "hii ben",
+                            "inout" : "in",
+                            "time" : "10:00",
+                            "date" : "Jun 10"
                         }
                     ]
                 }
@@ -35,10 +65,25 @@
                     "img": "saharofe.jpg",
                     "messages" : [
                         {
-                            "type" : "a",
-                            "text" : "a",
+                            "type" : "text",
+                            "text" : "hii ben",
                             "inout" : "in",
-                            "time" : "a"
+                            "time" : "10:00",
+                            "date" : "Jun 10"
+                        },
+                        {
+                            "type" : "text",
+                            "text" : "hii ben",
+                            "inout" : "in",
+                            "time" : "10:00",
+                            "date" : "Jun 10"
+                        },
+                        {
+                            "type" : "text",
+                            "text" : "hii ben",
+                            "inout" : "in",
+                            "time" : "10:00",
+                            "date" : "Jun 10"
                         }
                     ]
                 },
@@ -47,10 +92,25 @@
                     "img": "saharofe.jpg",
                     "messages" : [
                         {
-                            "type" : "a",
-                            "text" : "a",
+                            "type" : "text",
+                            "text" : "hii ben",
                             "inout" : "in",
-                            "time" : "a"
+                            "time" : "10:00",
+                            "date" : "Jun 10"
+                        },
+                        {
+                            "type" : "text",
+                            "text" : "hii ben",
+                            "inout" : "in",
+                            "time" : "10:00",
+                            "date" : "Jun 10"
+                        },
+                        {
+                            "type" : "text",
+                            "text" : "hii ben",
+                            "inout" : "in",
+                            "time" : "10:00",
+                            "date" : "Jun 10"
                         }
                     ]
                 }

@@ -1,9 +1,14 @@
 import React from "react";
 import "./CharUserCard.css"
 
-function ChatUSerCard({img, nickName}){
+function ChatUSerCard({img, nickName, chooseContact}){
+
+    const changeContact = function(){
+        chooseContact(nickName)
+    }
+
     return(
-        <div className="btn-outline-light chat_list border-dark">
+        <div onClick={changeContact} className="btn-outline-light chat_list border-dark">
             <div className="chat_people row">
                 <div className="col-md-2 col-1"> 
                     <img src={img} className="imgChat rounded-circle img-fluid"></img>
