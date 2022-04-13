@@ -9,13 +9,22 @@ import dataBaseMessages from "./dataBaseMessages.json"
 
 function Chat({UserName}){
 
-    var data = dataBaseMessages.UserName;
+    function findIndex(){
+        for(let x in dataBaseMessages.dataBaseMessages){
+            if(Object.keys(dataBaseMessages.dataBaseMessages[x]) == UserName){
+                return x;
+            }
+        }
+    }
+
+    var data = dataBaseMessages.dataBaseMessages.at(findIndex())[UserName];
+    //alert(JSON.stringify(data));
     const [cardsList, setCardsList] = useState(data);
     const [changeState , setChangeState] = useState(false)
 
     const doSearch = function(n, i){
         let newChat = {
-            "nickName" : n, "img": i
+            "nickName" : n, "img": i, "messages": []
         }
         data.push(newChat)
         setCardsList(data);
@@ -26,7 +35,7 @@ function Chat({UserName}){
         <div className="container" id="Chat">
                 <div className="col-xl-4 col-lg-4 col-sm-4 col-4" id="leftChat">
                     <div className="row">
-                     <NavBarChat doSearch={doSearch} UserName={UserName}/>
+                     <NavBarChat doSearch={doSearch} cardsList={cardsList} UserName={UserName}/>
                     </div>
                     <div className="row">
                         <Chatusers cardsList={cardsList} />
@@ -41,5 +50,4 @@ function Chat({UserName}){
 }
 
 export default Chat;
-/* <Route path={`/Chat?userName=$`} element={ <Messages/>}>
-              </Route>*/
+

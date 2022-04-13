@@ -1,47 +1,29 @@
-
 {
-    "Sahar": [
+    "dataBaseMessages": [
         {
-            "nickName": "sahar",
-            "img": "saharofe.jpg",
-            "messages":[{
-                "type":"a",
-                "text":"a",
-                "time":"a",
-                "inout":"a"
-            }]
+            "Sahar": [
+                {
+                    "nickName": "sahar",
+                    "img": "saharofe.jpg"
+                },
+                {
+                    "nickName": "Ben",
+                    "img": "saharofe.jpg"
+                }
+            ]
         },
         {
-            "nickName": "Ben",
-            "img": "saharofe.jpg",
-            "messages":[{
-                "type":"a",
-                "text":"a",
-                "time":"a",
-                "inout":"a"
-            }]
-        }
-    ],
-    "Beneli": [
-        {
-            "nickName": "sahar",
-            "img": "saharofe.jpg",
-            "messages":[{
-                "type":"a",
-                "text":"a",
-                "time":"a",
-                "inout":"a"
-            }]
-        },
-        {
-            "nickName": "Ben",
-            "img": "saharofe.jpg",
-            "messages":[{
-                "type":"a",
-                "text":"a",
-                "time":"a",
-                "inout":"a"
-            }]
+            "Beneli": [
+                {
+                    "nickName": "sahar",
+                    "img": "saharofe.jpg"
+                },
+                {
+                    "nickName": "Ben",
+                    "img": "saharofe.jpg"
+                }
+            ]
         }
     ]
 }
+

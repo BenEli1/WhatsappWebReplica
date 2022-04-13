@@ -6,7 +6,7 @@ import ChatUSerCard from './chatUserCard';
 import dataBase from '../Users/dataBaseObject';
 import dataBaseMessages from "./dataBaseMessages.json"
 import Chat from './Chat';
-function NavBarChat({doSearch, UserName}){
+function NavBarChat({doSearch, UserName, cardsList}){
 
     const addContact = function () {
         let nickname = document.getElementById('floatingInput').value;
@@ -19,9 +19,9 @@ function NavBarChat({doSearch, UserName}){
             wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
             alertPlaceholder.append(wrapper);
         }
-        console.log(JSON.stringify(dataBaseMessages.UserName));
+        console.log(JSON.stringify(dataBaseMessages.dataBaseMessages.UserName));
 
-        var valid=JSON.stringify(dataBaseMessages.UserName).includes(nickname);
+        var valid=JSON.stringify(cardsList).includes(nickname);
         console.log(valid);
 
         if (user&&!valid) {

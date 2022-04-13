@@ -8,8 +8,6 @@ function App() {
   const [userName, setUserName] = useState('');
   const [changeUSer, setChangeUser] = useState(true);
 
-  let path = '/chat?userName=' + userName;
-
   const changeUser = function(user){
     //setChangeUser(!changeUSer);
     setUserName(user);
