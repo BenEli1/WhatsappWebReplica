@@ -6,6 +6,7 @@ import $ from "jquery";
 import Chatusers from "./Chatusers";
 import React,{useState} from 'react'
 import dataBaseMessages from "./dataBaseMessages.json"
+import MessageBox from "./MessageBox";
 
 function Chat({UserName}){
 
@@ -41,7 +42,8 @@ function Chat({UserName}){
                         <Chatusers cardsList={cardsList} />
                     </div>
                 </div>
-                <div className="col-xl-8 col-lg-8 col-sm-8 col-8" id="rightChat">           
+                <div className="col-xl-8 col-lg-8 col-sm-8 col-8" id="rightChat"> 
+                <MessageBox  />   
                 </div>
                 <div className="col-xl-0 col-lg-0 col-sm-0 col-0">
                 </div>
