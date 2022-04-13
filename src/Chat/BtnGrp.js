@@ -8,3 +8,4 @@ return(
 <button type="button" class="btn btn-secondary"><i class="material-icons">keyboard_voice</i></button>
 </div>
 );}
+export default BtnGrp;

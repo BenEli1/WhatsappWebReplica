@@ -7,7 +7,7 @@ function InputMessage() {
   return (
     <div>
       <div id="buttonGroup">
-        
+      {addBtn()}
       </div>
       <div id="inputMessage" className="input-group mb-3">
         <button type="button" onClick={addButtons} className="btn btn-secondary">
@@ -32,6 +32,9 @@ function addButtons() {
   $('#buttonGroup').append(<BtnGrp />);
   }
 
+}
+function addBtn(){
+  return <BtnGrp />;
 }
 function buttonGroup() {
   return (
