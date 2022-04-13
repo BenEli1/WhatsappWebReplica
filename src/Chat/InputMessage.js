@@ -7,7 +7,7 @@ import {useState} from 'react'
 
 
 
-function InputMessage() {
+function InputMessage({addTextMessage}) {
 
   const [flag, setFlag] = useState(false)
 
@@ -31,8 +31,8 @@ function InputMessage() {
           <i class="material-icons">attachment</i>
         </button>
         {addBtn()}
-        <input type="text" className="form-control" placeholder="Write here" aria-label="Write here" aria-describedby="basic-addon2"></input>
-        <button className="btn btn-outline-secondary" type="button">Send</button>
+        <input type="text" className="form-control" id="sms" placeholder="Write here" aria-label="Write here" aria-describedby="basic-addon2"></input>
+        <button className="btn btn-outline-secondary" onClick={()=>addTextMessage(document.getElementById('sms').value)} type="button">Send</button>
       </div>
     </div>
   );
