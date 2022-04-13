@@ -32,7 +32,11 @@ function Register(){
             event.preventDefault();
             return;
         }
-    
+        if(!isNickNameExist(nickname)){
+            $('#invalidInput').append(invalidInput("Nickname", "Nickname already in use"));
+            event.preventDefault();
+            return;
+        }
         if(!isPasswordValid(password)){
             event.preventDefault();
             $('#invalidInput').append(invalidInput("Password","The password should be 6-20 characters long and must contain numbers and capital letters"));
@@ -159,6 +163,15 @@ function isUserNameValid(userName) {
 function isUserNameExist(userName) {
     for (let u in dataBase.users) {
         if (userName === dataBase.users[u].userName) {
+            return false;
+        }
+    }
+    return true;
+
+}
+function isNickNameExist(nickName) {
+    for (let u in dataBase.users) {
+        if (nickName === dataBase.users[u].nickName) {
             return false;
         }
     }
