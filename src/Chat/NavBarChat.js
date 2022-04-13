@@ -6,7 +6,7 @@ import ChatUSerCard from './chatUserCard';
 import dataBase from '../Users/dataBaseObject';
 import dataBaseMessages from "./dataBaseMessages.json"
 import Chat from './Chat';
-function NavBarChat({doSearch}){
+function NavBarChat({doSearch, UserName}){
 
     const addContact = function(){
         let nickname = document.getElementById('floatingInput').value;
@@ -18,7 +18,7 @@ function NavBarChat({doSearch}){
     return(
         <nav id="navbar1" data-bs-spy="scroll" className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
-                <span className="navbar-brand">Hello Ben</span>
+                <span className="navbar-brand">Hello {UserName}</span>
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">

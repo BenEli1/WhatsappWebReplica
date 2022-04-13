@@ -2,7 +2,7 @@ import Login from './Login';
 import Register from './Register';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
-function HomePage(){
+function HomePage({change}){
     return(
       
       <div className="container">
@@ -11,7 +11,7 @@ function HomePage(){
           </div>
           <div className="col-xl-6 col-lg-8 col-sm-10  mainbox">
             <Routes>
-              <Route path="/" element={<Login />}>
+              <Route path="/" element={<Login change={change} />}>
               </Route>
               <Route path="/register" element={<Register />}>
               </Route>

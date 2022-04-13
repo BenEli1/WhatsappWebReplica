@@ -5,7 +5,59 @@ import useState from 'react';
 import DataBase from '../Users/DataBase';
 import User from '../Users/User';
 import dataBase from "../Users/dataBaseObject";
+import {useNavigate} from 'react-router-dom'
 function Register(){
+
+    var navigate = useNavigate();
+
+    function signUp(event){
+        //get the form
+        $('div').remove("#invalidInput div");
+        const form = document.getElementById("registerForm");
+        //get the inputs from the form
+        let userName = form.elements['username-register'].value;
+        let nickname = form.elements['nickname-register'].value;
+        let password = form.elements['password'].value;
+        let confirmPassword = form.elements['confirm_password'].value
+        let image = form.elements['imageFromUser'].value
+    
+        //check validation
+        if(!isUserNameValid(userName)){
+            $('#invalidInput').append(invalidInput("Username", "The username must be at least 3 characters long"));
+            event.preventDefault();
+            return;
+        }
+        if(!isUserNameExist(userName)){
+            $('#invalidInput').append(invalidInput("Username", "Username already in use"));
+            event.preventDefault();
+            return;
+        }
+    
+        if(!isPasswordValid(password)){
+            event.preventDefault();
+            $('#invalidInput').append(invalidInput("Password","The password should be 6-20 characters long and must contain numbers and capital letters"));
+            return;
+        }
+    
+        if(!isConfirmPasswordValid(password, confirmPassword)){
+            event.preventDefault();
+            $('#invalidInput').append(invalidInput("Password","The passwords does not match"));
+            return;
+        }
+    
+        if(!isImageValid(image)){
+            event.preventDefault();
+            $('#invalidInput').append(invalidInput("Photo", "The file inserted is not an image"));
+            return;
+        }
+        //if everything OK submit the function
+       // ImageThumb(image);
+       
+        dataBase.add(userName, password, nickname, image);
+        event.preventDefault();
+        navigate("/");
+    }
+
     return(
         <div>
             <span id="invalidInput"></span>
@@ -87,61 +139,7 @@ fileReader.readAsDataURL(file[0]);
     */
 
 //the function is called when the user submit the form
-function signUp(event){
-    //get the form
-    $('div').remove("#invalidInput div");
-    const form = document.getElementById("registerForm");
-    //get the inputs from the form
-    let userName = form.elements['username-register'].value;
-    let nickname = form.elements['nickname-register'].value;
-    let password = form.elements['password'].value;
-    let confirmPassword = form.elements['confirm_password'].value
-    let image = form.elements['imageFromUser'].value
 
-    //check validation
-    if(!isUserNameValid(userName)){
-        $('#invalidInput').append(invalidInput("Username", "The username must be at least 3 characters long"));
-        event.preventDefault();
-        return;
-    }
-    if(!isUserNameExist(userName)){
-        $('#invalidInput').append(invalidInput("Username", "Username already in use"));
-        event.preventDefault();
-        return;
-    }
-
-    if(!isPasswordValid(password)){
-        event.preventDefault();
-        $('#invalidInput').append(invalidInput("Password","The password should be 6-20 characters long and must contain numbers and capital letters"));
-        return;
-    }
-
-    if(!isConfirmPasswordValid(password, confirmPassword)){
-        event.preventDefault();
-        $('#invalidInput').append(invalidInput("Password","The passwords does not match"));
-        return;
-    }
-
-    if(!isImageValid(image)){
-        event.preventDefault();
-        $('#invalidInput').append(invalidInput("Photo", "The file inserted is not an image"));
-        return;
-    }
-    //if everything OK submit the function
-   // ImageThumb(image);
-   
-    dataBase.add(userName, password, nickname, image);
-    event.preventDefault();
-    var alertPlaceholder = document.getElementById('liveAlertPlaceholder');
-var alertTrigger = document.getElementById('sign');
-function alert(message, type) {
-    var wrapper = document.createElement('div')
-    wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
-  
-    alertPlaceholder.append(wrapper)
-  }
-  setTimeout( function ( ) { alert( 'You have registered successfully','success' ); }, 0 );
-}
 
 
 function isPasswordValid(password){

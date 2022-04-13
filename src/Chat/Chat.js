@@ -7,7 +7,7 @@ import Chatusers from "./Chatusers";
 import React,{useState} from 'react'
 import dataBaseMessages from "./dataBaseMessages.json"
 
-function Chat(){
+function Chat({UserName}){
 
     var data = dataBaseMessages.dataBaseMessages;
     const [cardsList, setCardsList] = useState(data);
@@ -26,7 +26,7 @@ function Chat(){
         <div className="container" id="Chat">
                 <div className="col-xl-4 col-lg-4 col-sm-4 col-4" id="leftChat">
                     <div className="row">
-                     <NavBarChat doSearch={doSearch} />
+                     <NavBarChat doSearch={doSearch} userName={UserName}/>
                     </div>
                     <div className="row">
                         <Chatusers cardsList={cardsList} />

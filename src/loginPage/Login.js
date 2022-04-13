@@ -1,8 +1,36 @@
 import { BrowserRouter, Link } from "react-router-dom";
 import dataBase from "../Users/dataBaseObject";
 import $ from "jquery";
+import {useNavigate} from 'react-router-dom'
+import {useState} from 'react'
 
-function Login(){
+function Login({change}){
+
+  let navigate = useNavigate();
+
+  function login(event){
+    event.preventDefault()
+    $('div').remove("#userNotExist div");
+    const form = document.getElementById("loginForm");
+    //get the inputs from the form
+    const userName = form.elements['username-login'].value;
+    const password = form.elements['password-login'].value;
+    
+    if(!(dataBase.isUserExist(userName, password))){
+      event.preventDefault();
+      $('#userNotExist').append(
+        '<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">' +
+        'Usermane or Password are incorrect.' +
+        '<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>' +
+      '</div>'
+      )
+      return;
+    }
+    change(userName);
+    navigate(`/chat?userName=${userName}`);  
+  }
+
+
     return(
       <div>
         <span id="userNotExist"></span>
@@ -22,25 +50,6 @@ function Login(){
         <Link to='/register' type="button" href="/register" id="newaccount" className="btn btn-light input-group">Create a new account</Link>
       </div>
 );
-}
-
-function login(event){
-  $('div').remove("#userNotExist div");
-  const form = document.getElementById("loginForm");
-  //get the inputs from the form
-  const userName = form.elements['username-login'].value;
-  const password = form.elements['password-login'].value;
-  
-  if(!(dataBase.isUserExist(userName, password))){
-    event.preventDefault();
-    $('#userNotExist').append(
-      '<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">' +
-      'Usermane or Password are incorrect.' +
-      '<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>' +
-    '</div>'
-    )
-    return;
-  }
 }
 
 export default Login;

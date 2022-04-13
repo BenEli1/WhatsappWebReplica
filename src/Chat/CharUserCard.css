@@ -1,6 +1,8 @@
 .imgChat {
-    border-radius: 90%;
+    border-radius: 100%;
     margin-left: 10%;
+    height: 45px;
+    width: 45px;
 }
 
 .chat_ib h5 {
