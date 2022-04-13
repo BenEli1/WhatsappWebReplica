@@ -19,7 +19,12 @@ function NavBarChat({ doSearch }) {
             wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
             alertPlaceholder.append(wrapper);
         }
-        if (user) {
+        console.log(JSON.stringify(dataBaseMessages.dataBaseMessages));
+
+        var valid=JSON.stringify(dataBaseMessages.dataBaseMessages).includes(nickname);
+        console.log(valid);
+
+        if (user&&!valid) {
             let img = user.image;
             doSearch(nickname, img)
             setTimeout( function ( ) { alert( 'You have added a contact successfully','success' ); }, 0 );
