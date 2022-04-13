@@ -12,7 +12,7 @@ class DataBase{
 
     isUserExist(userName, password){
         for(let u in this.users){
-           if(userName == this.users[u].userName && password == this.users[u].password){
+           if(userName === this.users[u].userName && password === this.users[u].password){
                return true;
            }
         }

@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import $ from "jquery";
 import React from 'react';
 import 'bootstrap';
@@ -8,14 +8,32 @@ import dataBaseMessages from "./dataBaseMessages.json"
 import Chat from './Chat';
 function NavBarChat({doSearch, UserName}){
 
-    const addContact = function(){
+    const addContact = function () {
         let nickname = document.getElementById('floatingInput').value;
         let user = (dataBase.getUserByNickName(nickname));
-        let img = user.image;
-        doSearch(nickname, img)
+        var alertPlaceholder = document.getElementById('liveAlertPlaceholder');
+        var alertTrigger = document.getElementById('sign');
+        function alert(message, type) {
+            $('div').remove("#liveAlertPlaceholder div");
+            var wrapper = document.createElement('div')
+            wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+            alertPlaceholder.append(wrapper);
+        }
+        console.log(JSON.stringify(dataBaseMessages.dataBaseMessages));
+
+        var valid=JSON.stringify(dataBaseMessages.dataBaseMessages).includes(nickname);
+        console.log(valid);
+
+        if (user&&!valid) {
+            let img = user.image;
+            doSearch(nickname, img)
+            setTimeout( function ( ) { alert( 'You have added a contact successfully','success' ); }, 0 );
+        } else {
+            setTimeout(function () { alert('Nickname not found/already added', 'danger'); }, 0);
+        }
     }
 
-    return(
+    return (
         <nav id="navbar1" data-bs-spy="scroll" className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
                 <span className="navbar-brand">Hello {UserName}</span>
@@ -44,10 +62,11 @@ function NavBarChat({doSearch, UserName}){
                                                 <input type="text" className="form-control" id="floatingInput" placeholder="nickname"></input>
                                                 <label htmlFor="floatingInput">Contact's Identifier</label>
                                             </div>
+                                            <div id="liveAlertPlaceholder"></div>
                                         </div>
                                         <div className="modal-footer">
                                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="button" onClick={addContact} className="btn btn-primary" data-bs-dismiss="modal">Add</button>
+                                            <button type="button" id="sign" onClick={addContact} className="btn btn-primary" >Add</button>
                                         </div>
                                     </div>
                                 </div>

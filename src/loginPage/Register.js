@@ -1,10 +1,11 @@
 import { hasSelectionSupport } from "@testing-library/user-event/dist/utils";
-import { BrowserRouter, Link, Route} from "react-router-dom";
+import { BrowserRouter, Link, Route } from "react-router-dom";
 import $ from "jquery";
 import useState from 'react';
 import DataBase from '../Users/DataBase';
 import User from '../Users/User';
 import dataBase from "../Users/dataBaseObject";
+<<<<<<< HEAD
 import {useNavigate} from 'react-router-dom'
 function Register(){
 
@@ -59,9 +60,13 @@ function Register(){
     }
 
     return(
+=======
+function Register() {
+    return (
+>>>>>>> f837ea254ba21523a14abb1d38491cdcde2b0a07
         <div>
             <span id="invalidInput"></span>
-            <form onSubmit={e => signUp(e)}  id="registerForm">
+            <form onSubmit={e => signUp(e)} id="registerForm">
                 <div className="input-group flex-nowrap">
                     <span className="input-group-text">Username</span>
                     <input type="text" id="username-register" required className="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping"></input>
@@ -75,7 +80,7 @@ function Register(){
                 <div className="input-group flex-nowrap">
                     <span className="input-group-text" id="password-register">Password</span>
                     <input name="password" id="password" type="password" onKeyUp={e => matchPasswords(e)} required className="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping"></input>
-                    
+
                 </div>
 
                 <div className="input-group flex-nowrap">
@@ -83,8 +88,8 @@ function Register(){
                     <input type="password" name="confirm_password" id="confirm_password" onKeyUp={e => matchPasswords(e)} required className="form-control" placeholder="Password" aria-label="Password" aria-describedby="addon-wrapping"></input>
                     <span id='message' className="input-group-text"></span>
                 </div>
-                
-                
+
+
                 <div className="input-group flex-nowrap">
                     <div id="selectImage" className="form-label form-control bg-light">Select Image</div>
                 </div>
@@ -94,35 +99,35 @@ function Register(){
 
                 <div id="liveAlertPlaceholder"></div>
                 <div>
-                    <button type="submit"  id="sign" className="btn btn-light input-group border-secondary">Sign Up</button>
+                    <button type="submit" id="sign" className="btn btn-light input-group border-secondary">Sign Up</button>
                 </div>
             </form>
             <div>
                 <Link to="/" type="button" id="newaccount-register" className="btn btn-light input-group">Already have an account?</Link>
             </div>
         </div>
-        
+
     );
 }
-function invalidInput(type ,massage){    
+function invalidInput(type, massage) {
     return (
-        "<div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">" 
-            + "<strong> Invalid " + type + "! </strong>" + massage +
-            "<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>" + 
+        "<div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">"
+        + "<strong> Invalid " + type + "! </strong>" + massage +
+        "<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>" +
         "</div>"
-        );
+    );
 }
 
-function matchPasswords (event) {
-    if(($('#password').val() === "") || ($('#confirm_password').val() ===  "" ))
+function matchPasswords(event) {
+    if (($('#password').val() === "") || ($('#confirm_password').val() === ""))
         $('#message').html('');
-    else if ($('#password').val() === $('#confirm_password').val()) 
+    else if ($('#password').val() === $('#confirm_password').val())
         $('#message').html('Matching').css('color', 'green');
-    else 
+    else
         $('#message').html('Not Matching').css('color', 'red');
-   
-  };
-  //previewing the picture
+
+};
+//previewing the picture
 
 /*
 function previewImage(){
@@ -139,35 +144,93 @@ fileReader.readAsDataURL(file[0]);
     */
 
 //the function is called when the user submit the form
+<<<<<<< HEAD
+
+=======
+function signUp(event) {
+    //get the form
+    $('div').remove("#invalidInput div");
+    const form = document.getElementById("registerForm");
+    //get the inputs from the form
+    let userName = form.elements['username-register'].value;
+    let nickname = form.elements['nickname-register'].value;
+    let password = form.elements['password'].value;
+    let confirmPassword = form.elements['confirm_password'].value
+    let image = form.elements['imageFromUser'].value
+
+    //check validation
+    if (!isUserNameValid(userName)) {
+        $('#invalidInput').append(invalidInput("Username", "The username must be at least 3 characters long"));
+        event.preventDefault();
+        return;
+    }
+    if (!isUserNameExist(userName)) {
+        $('#invalidInput').append(invalidInput("Username", "Username already in use"));
+        event.preventDefault();
+        return;
+    }
+
+    if (!isPasswordValid(password)) {
+        event.preventDefault();
+        $('#invalidInput').append(invalidInput("Password", "The password should be 6-20 characters long and must contain numbers and capital letters"));
+        return;
+    }
+
+    if (!isConfirmPasswordValid(password, confirmPassword)) {
+        event.preventDefault();
+        $('#invalidInput').append(invalidInput("Password", "The passwords does not match"));
+        return;
+    }
+
+    if (!isImageValid(image)) {
+        event.preventDefault();
+        $('#invalidInput').append(invalidInput("Photo", "The file inserted is not an image"));
+        return;
+    }
+    //if everything OK submit the function
+    // ImageThumb(image);
+
+    dataBase.add(userName, password, nickname, image);
+    event.preventDefault();
+    var alertPlaceholder = document.getElementById('liveAlertPlaceholder');
+    var alertTrigger = document.getElementById('sign');
+    function alert(message, type) {
+        var wrapper = document.createElement('div')
+        wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+
+        alertPlaceholder.append(wrapper)
+    }
+    setTimeout(function () { alert('You have registered successfully', 'success'); }, 0);
+}
+>>>>>>> f837ea254ba21523a14abb1d38491cdcde2b0a07
 
 
-
-function isPasswordValid(password){
+function isPasswordValid(password) {
     /*pasword must contain ar least one number and one big character,
     and the length can be between 6-20 characters*/
     var regularExpression = /^(?=.*[0-9])(?=.*[A-Z])[a-zA-Z0-9!@#$%^&*]{6,20}$/
     return regularExpression.test(password)
 }
 
-function isConfirmPasswordValid(password, confirmPassword){
+function isConfirmPasswordValid(password, confirmPassword) {
     return password === confirmPassword;
 }
 
-function isUserNameValid(userName){
+function isUserNameValid(userName) {
     return userName.length >= 3;
 
 }
-function isUserNameExist(userName){
-        for(let u in dataBase.users){
-            if(userName === dataBase.users[u].userName){
-                return false;
-            }
-         }
-         return true;
+function isUserNameExist(userName) {
+    for (let u in dataBase.users) {
+        if (userName === dataBase.users[u].userName) {
+            return false;
+        }
+    }
+    return true;
 
 }
 
-function isImageValid(file){
+function isImageValid(file) {
     return file && file.toLowerCase().match(/\.(jpg|jpeg|png|gif)$/);
 }
 /*
@@ -198,7 +261,7 @@ function FileUpload() {
  * Component to display thumbnail of image.
  *//*
 const ImageThumb = ({ image }) => {
-  return <img src={URL.createObjectURL(image)} alt={image.name} />;
+ return <img src={URL.createObjectURL(image)} alt={image.name} />;
 };*/
 
 export default Register;
