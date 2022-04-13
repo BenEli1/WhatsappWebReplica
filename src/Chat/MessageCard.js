@@ -1,7 +1,7 @@
 import ImageSms from "./ImageSms";
 
-function MessageCardAccepted({text, type ,time, date}){
-
+function MessageCard({text, time, type, inout ,date}){
+    
     function rend(){
         if(type == "text")
             return text;
@@ -10,8 +10,17 @@ function MessageCardAccepted({text, type ,time, date}){
         }
     }
 
+    function Class(){
+        if (inout == "in"){
+            return "massageCardAccepted";
+        }
+        else{
+            return "messageCardSent"
+        }
+    }
+
     return(
-        <div className="massageCardAccepted">
+        <div className={Class()}>
         <div className="card alert-secondary">
             <div className="card-body">
                 {rend()}
@@ -22,4 +31,4 @@ function MessageCardAccepted({text, type ,time, date}){
     );
 }
 
-export default MessageCardAccepted; 
+export default MessageCard; 
