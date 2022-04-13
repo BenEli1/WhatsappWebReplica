@@ -92,8 +92,8 @@ body, html {
 }
 
 #massageBox{
-  max-height: 80%;
-
+  position: -webkit-sticky;
+  position: sticky;
 }
 
 

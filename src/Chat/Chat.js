@@ -39,6 +39,37 @@ function Chat({UserName}){
         setChangeState(!changeState)
     }
 
+    const addTextMessage = function(text){
+        let date = new Date();
+        cardsList.at(findIndexContact())["messages"].push({ 
+            "type" : "text",
+            "text" : text,
+            "inout" : "out",
+            "time" : date.getHours() + ":" + date.getMinutes(),
+            "date" : date.getDate() + "." + (parseInt(date.getMonth()) + 1).toString()
+        })
+        setCardsList(cardsList);
+        setChangeState(!changeState);
+
+    }
+
+    function findIndexContact(){
+        for(let x in cardsList){
+            if(cardsList[x].nickName === contact){
+                return x;
+            }
+        }
+    }
+
+    function inputBox(){
+        if (contact == ""){
+            return "";
+        }
+        else{
+            return <InputMessage addTextMessage={addTextMessage} />;
+        }
+    }
+
     return(
         <div className="container" id="Chat">
             <div className="row" id="ContactsRow">
@@ -52,7 +83,7 @@ function Chat({UserName}){
                 </div>
                 <div className="col-xl-8 col-lg-8 col-sm-8 col-8" id="rightChat"> 
                 <MessageBox user={UserName} contact={contact} cardsList={cardsList} />
-                <InputMessage />   
+                {inputBox()}
                 </div>
                 <div className="col-xl-0 col-lg-0 col-sm-0 col-0">
                 </div>
