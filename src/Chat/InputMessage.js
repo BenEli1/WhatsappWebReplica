@@ -19,6 +19,7 @@ function InputMessage(){
     );
 }
 function addButtons(){
+  $('div').remove("#buttonGroup div");
   $('#buttonGroup').append(buttonGroup());
 
 }
