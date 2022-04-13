@@ -11,17 +11,15 @@ function MessageBox({user, contact, cardsList}){
     }
     
     function rend(){
-        if(contact === "")
-            return contact;
+        if(contact === '' || cardsList.length == 0)
+            return '';
         else{
-            return messages;
+            return (cardsList.at(findIndexContact())["messages"]).map((message,key)=>
+            {
+                    return <MessageCard {...message} key={key} />
+            });
         }
     }
-
-    const messages = (cardsList.at(findIndexContact())["messages"]).map((message,key)=>
-    {
-            return <MessageCard {...message} key={key} />
-    });
 
     return(
         <div id="massageBox">

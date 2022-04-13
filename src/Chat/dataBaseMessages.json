@@ -1,130 +1,132 @@
 {
     "dataBaseMessages": [
         {
-            "Sahar": [
+            "username": "Sahar",
+            "data": [
                 {
                     "nickName": "sahar",
                     "img": "saharofe.jpg",
-                    "messages" : [
+                    "messages": [
                         {
-                            "type" : "image",
-                            "text" : "saharofe.jpg",
-                            "inout" : "out",
-                            "time" : "10:00",
-                            "date" : "Jun 10"
+                            "type": "image",
+                            "text": "saharofe.jpg",
+                            "inout": "out",
+                            "time": "10:00",
+                            "date": "Jun 10"
                         },
                         {
-                            "type" : "text",
-                            "text" : "hii ben, how are you fgdvfdfewcfdhdsiughfieusyvhutincsdnguescnfvtruirchniugvhneisuxfnchtuicfhnesrivgbhweiucbrenuixcnfdhiugfwenhcvyugrebhnxdiuhvrei?",
-                            "inout" : "out",
-                            "time" : "9:00",
-                            "date" : "Jun 11"
+                            "type": "text",
+                            "text": "hii ben, how are you fgdvfdfewcfdhdsiughfieusyvhutincsdnguescnfvtruirchniugvhneisuxfnchtuicfhnesrivgbhweiucbrenuixcnfdhiugfwenhcvyugrebhnxdiuhvrei?",
+                            "inout": "out",
+                            "time": "9:00",
+                            "date": "Jun 11"
                         },
                         {
-                            "type" : "text",
-                            "text" : "workinggg",
-                            "inout" : "in",
-                            "time" : "10:00",
-                            "date" : "Jun 10"
+                            "type": "text",
+                            "text": "workinggg",
+                            "inout": "in",
+                            "time": "10:00",
+                            "date": "Jun 10"
                         },
                         {
-                            "type" : "text",
-                            "text" : "workinggg",
-                            "inout" : "in",
-                            "time" : "10:00",
-                            "date" : "Jun 10"
+                            "type": "text",
+                            "text": "workinggg",
+                            "inout": "in",
+                            "time": "10:00",
+                            "date": "Jun 10"
                         },
                         {
-                            "type" : "text",
-                            "text" : "workinggg",
-                            "inout" : "in",
-                            "time" : "10:00",
-                            "date" : "Jun 10"
+                            "type": "text",
+                            "text": "workinggg",
+                            "inout": "in",
+                            "time": "10:00",
+                            "date": "Jun 10"
                         }
                     ]
                 },
                 {
                     "nickName": "Ben",
                     "img": "saharofe.jpg",
-                    "messages" : [
+                    "messages": [
                         {
-                            "type" : "text",
-                            "text" : "hii ben",
-                            "inout" : "in",
-                            "time" : "10:00",
-                            "date" : "Jun 10"
+                            "type": "text",
+                            "text": "hii ben",
+                            "inout": "in",
+                            "time": "10:00",
+                            "date": "Jun 10"
                         },
                         {
-                            "type" : "text",
-                            "text" : "hii ben",
-                            "inout" : "out",
-                            "time" : "10:00",
-                            "date" : "Jun 10"
+                            "type": "text",
+                            "text": "hii ben",
+                            "inout": "out",
+                            "time": "10:00",
+                            "date": "Jun 10"
                         },
                         {
-                            "type" : "text",
-                            "text" : "hii ben",
-                            "inout" : "in",
-                            "time" : "10:00",
-                            "date" : "Jun 10"
+                            "type": "text",
+                            "text": "hii ben",
+                            "inout": "in",
+                            "time": "10:00",
+                            "date": "Jun 10"
                         }
                     ]
                 }
             ]
         },
         {
-            "Beneli": [
+            "username": "Beneli",
+            "data": [
                 {
                     "nickName": "sahar",
                     "img": "saharofe.jpg",
-                    "messages" : [
+                    "messages": [
                         {
-                            "type" : "text",
-                            "text" : "hii ben",
-                            "inout" : "in",
-                            "time" : "10:00",
-                            "date" : "Jun 10"
+                            "type": "text",
+                            "text": "hii ben",
+                            "inout": "in",
+                            "time": "10:00",
+                            "date": "Jun 10"
                         },
                         {
-                            "type" : "text",
-                            "text" : "hii ben",
-                            "inout" : "in",
-                            "time" : "10:00",
-                            "date" : "Jun 10"
+                            "type": "text",
+                            "text": "hii ben",
+                            "inout": "in",
+                            "time": "10:00",
+                            "date": "Jun 10"
                         },
                         {
-                            "type" : "text",
-                            "text" : "hii ben",
-                            "inout" : "in",
-                            "time" : "10:00",
-                            "date" : "Jun 10"
+                            "type": "text",
+                            "text": "hii ben",
+                            "inout": "in",
+                            "time": "10:00",
+                            "date": "Jun 10"
                         }
                     ]
                 },
                 {
                     "nickName": "Ben",
                     "img": "saharofe.jpg",
-                    "messages" : [
+                    "messages": [
                         {
-                            "type" : "text",
-                            "text" : "hii ben",
-                            "inout" : "in",
-                            "time" : "10:00",
-                            "date" : "Jun 10"
+                            "type": "text",
+                            "text": "hii ben",
+                            "inout": "in",
+                            "time": "10:00",
+                            "date": "Jun 10"
                         },
                         {
-                            "type" : "text",
-                            "text" : "hii ben",
-                            "inout" : "in",
-                            "time" : "10:00",
-                            "date" : "Jun 10"
+                            "type": "text",
+                            "text": "hii ben",
+                            "inout": "in",
+                            "time": "10:00",
+                            "date": "Jun 10"
                         },
                         {
-                            "type" : "text",
-                            "text" : "hii ben",
-                            "inout" : "in",
-                            "time" : "10:00",
-                            "date" : "Jun 10"
+                            "type": "text",
+                            "text": "hii ben",
+                            "inout": "in",
+                            "time": "10:00",
+                            "date": "Jun 10"
                         }
                     ]
                 }
@@ -132,4 +134,3 @@
         }
     ]
 }
-

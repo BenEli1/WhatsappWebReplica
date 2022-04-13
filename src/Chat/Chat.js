@@ -3,7 +3,7 @@ import NavBarChat from "./NavBarChat";
 import { Route, Routes } from "react-router-dom";
 import $ from "jquery";
 import Chatusers from "./Chatusers";
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import dataBaseMessages from "./dataBaseMessages.json"
 import InputMessage from "./InputMessage";
 import MessageBox from "./MessageBox";
@@ -12,17 +12,21 @@ function Chat({UserName}){
 
     function findIndex(){
         for(let x in dataBaseMessages.dataBaseMessages){
-            if(Object.keys(dataBaseMessages.dataBaseMessages[x]) == UserName){
+            if(dataBaseMessages.dataBaseMessages[x].username == UserName){
                 return x;
             }
         }
     }
 
-    var data = dataBaseMessages.dataBaseMessages.at(findIndex())[UserName];
+    var data = dataBaseMessages.dataBaseMessages.at(findIndex())["data"];
     //alert(JSON.stringify(data));
     const [cardsList, setCardsList] = useState(data);
     const [changeState , setChangeState] = useState(false)
     const [contact, setContact] = useState('')
+
+    useEffect(() => {
+        document.querySelector('#scroolBotoom').scrollIntoView()
+      });
 
     const chooseContact = function(contact){
         setContact(contact);
@@ -48,9 +52,7 @@ function Chat({UserName}){
             "time" : date.getHours() + ":" + date.getMinutes(),
             "date" : date.getDate() + "." + (parseInt(date.getMonth()) + 1).toString()
         })
-        setCardsList(cardsList);
         setChangeState(!changeState);
-
     }
 
     function findIndexContact(){
@@ -84,6 +86,7 @@ function Chat({UserName}){
                 <div className="col-xl-8 col-lg-8 col-sm-8 col-8" id="rightChat"> 
                 <MessageBox user={UserName} contact={contact} cardsList={cardsList} />
                 {inputBox()}
+                <div id="scroolBotoom"></div>
                 </div>
                 <div className="col-xl-0 col-lg-0 col-sm-0 col-0">
                 </div>
