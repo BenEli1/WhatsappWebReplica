@@ -4,11 +4,27 @@
             "Sahar": [
                 {
                     "nickName": "sahar",
-                    "img": "saharofe.jpg"
+                    "img": "saharofe.jpg",
+                    "messages" : [
+                        {
+                            "type" : "a",
+                            "text" : "a",
+                            "inout" : "in",
+                            "time" : "a"
+                        }
+                    ]
                 },
                 {
                     "nickName": "Ben",
-                    "img": "saharofe.jpg"
+                    "img": "saharofe.jpg",
+                    "messages" : [
+                        {
+                            "type" : "a",
+                            "text" : "a",
+                            "inout" : "in",
+                            "time" : "a"
+                        }
+                    ]
                 }
             ]
         },
@@ -16,11 +32,27 @@
             "Beneli": [
                 {
                     "nickName": "sahar",
-                    "img": "saharofe.jpg"
+                    "img": "saharofe.jpg",
+                    "messages" : [
+                        {
+                            "type" : "a",
+                            "text" : "a",
+                            "inout" : "in",
+                            "time" : "a"
+                        }
+                    ]
                 },
                 {
                     "nickName": "Ben",
-                    "img": "saharofe.jpg"
+                    "img": "saharofe.jpg",
+                    "messages" : [
+                        {
+                            "type" : "a",
+                            "text" : "a",
+                            "inout" : "in",
+                            "time" : "a"
+                        }
+                    ]
                 }
             ]
         }
