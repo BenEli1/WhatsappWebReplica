@@ -9,7 +9,7 @@ import dataBaseMessages from "./dataBaseMessages.json"
 
 function Chat({UserName}){
 
-    var data = dataBaseMessages.dataBaseMessages;
+    var data = dataBaseMessages.UserName;
     const [cardsList, setCardsList] = useState(data);
     const [changeState , setChangeState] = useState(false)
 

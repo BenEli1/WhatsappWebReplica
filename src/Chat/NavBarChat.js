@@ -19,9 +19,9 @@ function NavBarChat({doSearch, UserName}){
             wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
             alertPlaceholder.append(wrapper);
         }
-        console.log(JSON.stringify(dataBaseMessages.dataBaseMessages));
+        console.log(JSON.stringify(dataBaseMessages.UserName));
 
-        var valid=JSON.stringify(dataBaseMessages.dataBaseMessages).includes(nickname);
+        var valid=JSON.stringify(dataBaseMessages.UserName).includes(nickname);
         console.log(valid);
 
         if (user&&!valid) {
