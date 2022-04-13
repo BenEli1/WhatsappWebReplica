@@ -12,16 +12,25 @@ function MessageCard({text, time, type, inout ,date}){
 
     function Class(){
         if (inout == "in"){
-            return "massageCardAccepted";
+            return "massageCardAccepted ";
         }
         else{
             return "messageCardSent"
         }
     }
 
+    function color(){
+        if (inout == "in"){
+            return "alert-secondary";
+        }
+        else{
+            return "alert-dark"
+        }
+    }
+
     return(
         <div className={Class()}>
-        <div className="card alert-secondary">
+        <div className={"card " + color()}>
             <div className="card-body">
                 {rend()}
             </div>

@@ -17,7 +17,7 @@ function ChatUSerCard({img, nickName, chooseContact, lastMessage}){
                 </div>
                 <div className="chat_ib col-md-10">
                     <h5>{nickName}<span className="chat_date"> </span></h5>
-                    <p>{lastMessage}</p>
+                    <p>{lastMessage.substring(0,50)}</p>
                 </div>
             </div>
         </div>
