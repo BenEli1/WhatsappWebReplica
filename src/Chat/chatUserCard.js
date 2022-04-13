@@ -1,7 +1,9 @@
+
 import React from "react";
 import "./CharUserCard.css"
+import dataBaseMessages from "./dataBaseMessages.json"
 
-function ChatUSerCard({img, nickName, chooseContact}){
+function ChatUSerCard({img, nickName, chooseContact, lastMessage}){
 
     const changeContact = function(){
         chooseContact(nickName)
@@ -15,7 +17,7 @@ function ChatUSerCard({img, nickName, chooseContact}){
                 </div>
                 <div className="chat_ib col-md-10">
                     <h5>{nickName}<span className="chat_date"> </span></h5>
-                    <p>hi, how are you?</p>
+                    <p>{lastMessage}</p>
                 </div>
             </div>
         </div>
