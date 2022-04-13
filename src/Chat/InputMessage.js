@@ -2,10 +2,12 @@
 import $ from 'jquery';
 import jQuery from "jquery";
 import bootstrap from 'bootstrap';
+import BtnGrp from "./BtnGrp"
 function InputMessage() {
   return (
     <div>
       <div id="buttonGroup">
+        
       </div>
       <div id="inputMessage" className="input-group mb-3">
         <button type="button" onClick={addButtons} className="btn btn-secondary">
@@ -27,7 +29,7 @@ function addButtons() {
   }else{
   flag=true;
   $('div').remove("#buttonGroup div");
-  $('#buttonGroup').append(buttonGroup());
+  $('#buttonGroup').append(<BtnGrp />);
   }
 
 }
