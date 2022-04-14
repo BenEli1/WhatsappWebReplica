@@ -24,6 +24,9 @@ function InputMessage({ addTextMessage }) {
 
   const send = function (event) {
     event.preventDefault()
+    if(document.getElementById('sms').value == ''){
+      return;
+    }
     addTextMessage(document.getElementById('sms').value);
     document.getElementById('sms').value = '';
   }
