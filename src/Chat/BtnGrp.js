@@ -72,7 +72,6 @@ function BtnGrp({addMessage}) {
                 <button className="btn btn-secondary " type="button" onClick={importVoice} id="btnStart-">
                     <i className="material-icons">keyboard_voice</i>
                 </button>
-
                 <button className="btn btn-secondary " type="button" id="btnStop-">
                     stop
                 </button>
