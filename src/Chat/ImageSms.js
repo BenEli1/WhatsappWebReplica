@@ -1,6 +1,6 @@
 function ImageSms({text}){
     return(
-        <img src={text} className="imagesms"></img>
+        <img src={text} type={"video/" + text.split(".")[text.split(".").length - 1]} className="imagesms"></img>
     );
 }
 
