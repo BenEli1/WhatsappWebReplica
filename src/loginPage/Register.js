@@ -7,11 +7,9 @@ import User from '../Users/User';
 import dataBase from "../Users/dataBaseObject";
 import {useNavigate} from 'react-router-dom'
 import dataBaseMessages from "../Chat/dataBaseMessages.json"
-
 function Register(){
 
     var navigate = useNavigate();
-
     function signUp(event){
         //get the form
         $('div').remove("#invalidInput div");
@@ -22,7 +20,9 @@ function Register(){
         let password = form.elements['password'].value;
         let confirmPassword = form.elements['confirm_password'].value
         let image = form.elements['imageFromUser'].value
-    
+        let image2= form.elements['imageFromUser'].files[0]
+        var url2 = URL.createObjectURL(image2);
+
         //check validation
         if(!isUserNameValid(userName)){
             $('#invalidInput').append(invalidInput("Username", "The username must be at least 3 characters long"));
@@ -58,8 +58,9 @@ function Register(){
         }
         //if everything OK submit the function
        // ImageThumb(image);
-       
-        dataBase.add(userName, password, nickname, image);
+
+        dataBase.add(userName, password, nickname, url2);
+        alert(JSON.stringify(dataBase));
         dataBaseMessages.dataBaseMessages.push({username : userName, "data" : []})
         //alert(JSON.stringify(dataBaseMessages.dataBaseMessages))
         event.preventDefault();
@@ -99,7 +100,6 @@ function Register(){
                 <div id="fileLoad" className="input-group flex-nowrap">
                     <input type="file" required id="imageFromUser" className="form-control" accept="image/*" placeholder="Image" aria-label="Image" aria-describedby="addon-wrapping" ></input>
                 </div>
-
                 <div id="liveAlertPlaceholder"></div>
                 <div>
                     <button type="submit" id="sign" className="btn btn-light input-group border-secondary">Sign Up</button>
@@ -216,5 +216,4 @@ function FileUpload() {
 const ImageThumb = ({ image }) => {
  return <img src={URL.createObjectURL(image)} alt={image.name} />;
 };*/
-
 export default Register;
