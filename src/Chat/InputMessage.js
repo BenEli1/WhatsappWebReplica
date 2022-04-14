@@ -41,10 +41,14 @@ function InputMessage({addTextMessage}) {
     </div>
   );
 }
+
 $(document).on("keypress", "input", function(e){
   if(e.which == 13){
-    document.getElementById('sms').value = ''; 
+    var inputVal = $(this).val();
+    var change = document.getElementById("sendBtn");
+    change=!change;
   }
 });
+
 export default InputMessage;
 
