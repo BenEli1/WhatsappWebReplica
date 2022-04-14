@@ -5,8 +5,8 @@ function BtnGrp({addMessage}) {
 
     function importImage() {
         let input = document.createElement('input');
-        input.setAttribute('id','loadImage')
-        input.setAttribute('accept','image/*')
+        input.setAttribute('id', 'loadImage')
+        input.setAttribute('accept', 'image/*')
         input.type = 'file';
         input.click();
         input.onchange = () => {
@@ -42,7 +42,7 @@ function BtnGrp({addMessage}) {
               mediaRecorder.stop();
             },{once:true});
             mediaRecorder.ondataavailable = function (ev) {
-              dataArray.push(ev.data);
+                dataArray.push(ev.data);
             }
             let dataArray = [];
             mediaRecorder.onstop = function (ev) {
@@ -61,8 +61,9 @@ function BtnGrp({addMessage}) {
             <div className="btn-group" role="group">
             <button className="btn btn-secondary " type="button" onClick={importImage} id="button-addon2">
                 <i className="material-icons">add_photo_alternate</i>
-
                 </button>
+
+                
 
                 <button className="btn btn-secondary " type="button" onClick={importVideo} id="button-addon2">
                     <i className="material-icons">videocam</i>
@@ -71,6 +72,8 @@ function BtnGrp({addMessage}) {
                 <button className="btn btn-secondary " type="button" onClick={importVoice} id="btnStart-">
                     <i className="material-icons">keyboard_voice</i>
                 </button>
+                <button type="button" id="btn-Start">start</button>
+                <button type="button" id="btn-Stop">stop</button>
 
                 <button className="btn btn-secondary " type="button" id="btnStop-">
                     stop
