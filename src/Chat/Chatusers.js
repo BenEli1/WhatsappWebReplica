@@ -15,7 +15,7 @@ function Chatusers({cardsList, chooseContact}){
                 return <ChatUSerCard lastMessage="" 
                 {...person} key={key} chooseContact={chooseContact} />
             }
-            return <ChatUSerCard lastMessage={person.messages.at(person.messages.length - 1)["text"]} 
+            return <ChatUSerCard lastMessage={lastMessage(person)} 
         {...person} key={key}
          lastDate={date(person.messages.at(person.messages.length - 1)["time"],person.messages.at(person.messages.length - 1)["date"])} chooseContact={chooseContact} />
     
@@ -28,6 +28,15 @@ function Chatusers({cardsList, chooseContact}){
         }
         else{
             return date;
+        }
+    }
+
+    function lastMessage(person){
+        if(person.messages.at(person.messages.length - 1)["type"] == "text"){
+            return person.messages.at(person.messages.length - 1)["text"];
+        }
+        else{
+            return person.messages.at(person.messages.length - 1)["type"];
         }
     }
 
