@@ -23,7 +23,7 @@ function Chatusers({cardsList, chooseContact}){
     }
 
     function date(time, date){
-        if (`${todayDate.getDate().toString()}.${(parseInt(todayDate.getMonth()) + 1).toString()}` == date){
+        if (`${todayDate.getDate().toString().padStart(2, '0')}.${(parseInt(todayDate.getMonth()) + 1).toString().padStart(2, '0')}` == date){
             return time;
         }
         else{
