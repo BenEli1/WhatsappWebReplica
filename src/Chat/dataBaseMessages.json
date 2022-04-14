@@ -15,8 +15,8 @@
                             "date": "Jun 10"
                         },
                         {
-                            "type": "text",
-                            "text": "hii ben, how are you fgdvfdfewcfdhdsiughfieusyvhutincsdnguescnfvtruirchniugvhneisuxfnchtuicfhnesrivgbhweiucbrenuixcnfdhiugfwenhcvyugrebhnxdiuhvrei?",
+                            "type": "video",
+                            "text": "video.mp4",
                             "inout": "out",
                             "time": "9:00",
                             "date": "Jun 11"
@@ -29,15 +29,15 @@
                             "date": "Jun 10"
                         },
                         {
-                            "type": "text",
-                            "text": "workinggg",
-                            "inout": "in",
+                            "type": "voice",
+                            "text": "video.mp4",
+                            "inout": "out",
                             "time": "10:00",
                             "date": "Jun 10"
                         },
                         {
                             "type": "text",
-                            "text": "workinggg",
+                            "text": "hii",
                             "inout": "in",
                             "time": "10:00",
                             "date": "Jun 10"

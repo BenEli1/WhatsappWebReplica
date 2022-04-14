@@ -1,4 +1,6 @@
 import ImageSms from "./ImageSms";
+import VideoSms from "./VideoSms";
+import VoiceSms from "./VoiceSms";
 
 function MessageCard({text, time, type, inout ,date}){
     
@@ -7,6 +9,12 @@ function MessageCard({text, time, type, inout ,date}){
             return text;
         else if(type == "image"){
             return <ImageSms text={text}/>
+        }
+        else if(type == "video"){
+            return <VideoSms text={text}/>
+        }
+        else if(type == "voice"){
+            return <VoiceSms text={text}/>
         }
     }
 
