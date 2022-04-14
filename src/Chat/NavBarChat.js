@@ -68,6 +68,7 @@ function NavBarChat({doSearch, UserName, cardsList}){
                                     </div>
                                 </div>
                             </div>
+                            
                         </li>
                         <li className="nav-item">
                             <Link to="/" className="dropdown-item nav-link">Log-out</Link>
