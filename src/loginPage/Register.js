@@ -6,6 +6,8 @@ import DataBase from '../Users/DataBase';
 import User from '../Users/User';
 import dataBase from "../Users/dataBaseObject";
 import {useNavigate} from 'react-router-dom'
+import dataBaseMessages from "../Chat/dataBaseMessages.json"
+
 function Register(){
 
     var navigate = useNavigate();
@@ -15,7 +17,7 @@ function Register(){
         $('div').remove("#invalidInput div");
         const form = document.getElementById("registerForm");
         //get the inputs from the form
-        let userName = form.elements['username-register'].value;
+        const userName = form.elements['username-register'].value;
         let nickname = form.elements['nickname-register'].value;
         let password = form.elements['password'].value;
         let confirmPassword = form.elements['confirm_password'].value
@@ -58,6 +60,8 @@ function Register(){
        // ImageThumb(image);
        
         dataBase.add(userName, password, nickname, image);
+        dataBaseMessages.dataBaseMessages.push({username : userName, "data" : []})
+        //alert(JSON.stringify(dataBaseMessages.dataBaseMessages))
         event.preventDefault();
         navigate("/");
     }
