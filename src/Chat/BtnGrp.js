@@ -3,6 +3,8 @@ import { useState } from 'react'
 import $ from "jquery";
 function BtnGrp({addMessage}) {
 
+    const [record, setRecord] = useState(false)
+
     function importImage() {
         let input = document.createElement('input');
         input.setAttribute('id', 'loadImage')
@@ -30,6 +32,15 @@ function BtnGrp({addMessage}) {
               };
         
       }
+
+      function playRecord(){
+        if(!record){
+            importVoice();
+        }
+        setRecord(!record);
+      }
+
+
       function importVoice(){
         let audioIN = { audio: true };
         navigator.mediaDevices.getUserMedia(audioIN)
@@ -56,6 +67,13 @@ function BtnGrp({addMessage}) {
           })
       }
 
+      function icon(){
+          if(record){
+                return <i className="material-icons">radio_button_checked</i>
+          }
+          return <i className="material-icons">keyboard_voice</i>
+      }
+
     return (
         <div>
             <div className="btn-group" role="group">
@@ -69,13 +87,9 @@ function BtnGrp({addMessage}) {
                     <i className="material-icons">videocam</i>
                 </button>
 
-                <button className="btn btn-secondary " type="button" onClick={importVoice} id="btnStart-">
-                    <i className="material-icons">keyboard_voice</i>
+                <button className="btn btn-secondary " type="button" onClick={playRecord} id="btnStop-">
+                    {icon()}
                 </button>
-                <button className="btn btn-secondary " type="button" id="btnStop-">
-                    stop
-                </button>
-
             </div>
         </div>
     );
