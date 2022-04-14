@@ -3,7 +3,7 @@ import React from "react";
 import "./CharUserCard.css"
 import dataBaseMessages from "./dataBaseMessages.json"
 
-function ChatUSerCard({img, nickName, chooseContact, lastMessage}){
+function ChatUSerCard({img, nickName, chooseContact, lastMessage, lastDate}){
 
     const changeContact = function(){
         chooseContact(nickName)
@@ -16,7 +16,7 @@ function ChatUSerCard({img, nickName, chooseContact, lastMessage}){
                     <img src={img} className="imgChat rounded-circle img-fluid"></img>
                 </div>
                 <div className="chat_ib col-md-10">
-                    <h5>{nickName}<span className="chat_date"> </span></h5>
+                    <h5>{nickName}<span className="chat_date">{lastDate}</span></h5>
                     <p>{lastMessage.substring(0,50)}</p>
                 </div>
             </div>
