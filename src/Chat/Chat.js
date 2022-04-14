@@ -43,10 +43,10 @@ function Chat({UserName}){
         setChangeState(!changeState)
     }
 
-    const addTextMessage = function(text){
+    const addMessage = function(text, type){
         let date = new Date();
         cardsList.at(findIndexContact())["messages"].push({ 
-            "type" : "text",
+            "type" : type,
             "text" : text,
             "inout" : "out",
             "time" : date.getHours() + ":" + date.getMinutes(),
@@ -68,7 +68,7 @@ function Chat({UserName}){
             return "";
         }
         else{
-            return <InputMessage addTextMessage={addTextMessage} />;
+            return <InputMessage addMessage={addMessage} />;
         }
     }
 

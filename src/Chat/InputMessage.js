@@ -7,7 +7,7 @@ import { useState } from 'react'
 
 
 
-function InputMessage({ addTextMessage }) {
+function InputMessage({ addMessage }) {
 
   const [flag, setFlag] = useState(false)
 
@@ -19,7 +19,7 @@ function InputMessage({ addTextMessage }) {
     if (!flag) {
       return "";
     }
-    return <BtnGrp />;
+    return <BtnGrp addMessage={addMessage} />;
   }
 
   const send = function (event) {
@@ -27,7 +27,7 @@ function InputMessage({ addTextMessage }) {
     if(document.getElementById('sms').value == ''){
       return;
     }
-    addTextMessage(document.getElementById('sms').value);
+    addMessage(document.getElementById('sms').value,"text");
     document.getElementById('sms').value = '';
   }
 
