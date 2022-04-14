@@ -72,7 +72,7 @@ body, html {
 }
 
 #rightChat{
-  height: 90%;
+  height: 85%;
   overflow-x: hidden;
   overflow-y: scroll;
   scroll-behavior: smooth;
