@@ -1,4 +1,4 @@
-import HomePage from './LoginPage/HomePage';
+import HomePage from './loginPage/HomePage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Chat from './Chat/Chat';
 import 'bootstrap';
