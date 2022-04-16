@@ -15,7 +15,7 @@ RegisterPage- can't leave anything empty and cant choose an exisiting username/n
 
 ![register](https://user-images.githubusercontent.com/92650578/163668959-bf5b84b6-e275-49d9-aa61-583f06c395fc.PNG)
 
-Chat- Consists of contact on the left and the message box on the right.
+Chat- Consists of contacts on the left and the message box on the right.
 
 ![chat with vid img msg and recording](https://user-images.githubusercontent.com/92650578/163668962-29ebee7e-3ca0-4543-8918-508b7b7851a7.PNG)
 
