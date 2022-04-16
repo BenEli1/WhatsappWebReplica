@@ -49,8 +49,8 @@ function Chat({UserName}){
             "type" : type,
             "text" : text,
             "inout" : "out",
-            "time" : date.getHours() + ":" + date.getMinutes(),
-            "date" : date.getDate() + "." + (parseInt(date.getMonth()) + 1).toString()
+            "time" : date.getHours().toString().padStart(2, '0') + ":" + date.getMinutes().toString().padStart(2, '0'),
+            "date" : date.getDate().toString().padStart(2, '0') + "." + (parseInt(date.getMonth()) + 1).toString().padStart(2, '0')
         })
         setChangeState(!changeState);
     }
