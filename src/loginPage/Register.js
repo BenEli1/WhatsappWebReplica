@@ -60,7 +60,6 @@ function Register(){
        // ImageThumb(image);
 
         dataBase.add(userName, password, nickname, url2);
-        alert(JSON.stringify(dataBase));
         dataBaseMessages.dataBaseMessages.push({username : userName, "data" : []})
         //alert(JSON.stringify(dataBaseMessages.dataBaseMessages))
         event.preventDefault();
@@ -130,23 +129,7 @@ function matchPasswords(event) {
         $('#message').html('Not Matching').css('color', 'red');
 
 };
-//previewing the picture
 
-/*
-function previewImage(){
-    console.log("oved");
-    alert("hello");
-    var file = document.getElementById("file").files;
-    if(file.length>0){
-        var fileReader= new fileReader();
-        fileReader.onLoad = function(event){
-            document.getElementById("imageFromUser").setAttribute("src",event.target.result());
-        };
-fileReader.readAsDataURL(file[0]);
-    }
-    */
-
-//the function is called when the user submit the form
 
 
 function isPasswordValid(password) {
@@ -186,34 +169,5 @@ function isNickNameExist(nickName) {
 function isImageValid(file) {
     return file && file.toLowerCase().match(/\.(jpg|jpeg|png|gif)$/);
 }
-/*
-function FileUpload() {
-  // State to store uploaded file
-  const [file, setFile] = React.useState("");
 
-  // Handles file upload event and updates state
-  function handleUpload(event) {
-    setFile(event.target.files[0]);
-
-    // Add code here to upload file to server
-    // ...
-  }
-
-  return (
-    <div id="upload-box">
-      <input type="file" onChange={handleUpload} />
-      <p>Filename: {file.name}</p>
-      <p>File type: {file.type}</p>
-      <p>File size: {file.size} bytes</p>
-      {file && <ImageThumb image={file} />}
-    </div>
-  );
-}
-*/
-/**
- * Component to display thumbnail of image.
- *//*
-const ImageThumb = ({ image }) => {
- return <img src={URL.createObjectURL(image)} alt={image.name} />;
-};*/
 export default Register;

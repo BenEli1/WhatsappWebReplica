@@ -4,9 +4,64 @@
             "username": "Sahar",
             "data": [
                 {
-                    "nickName": "sahar",
-                    "img": "saharofe.jpg",
+                    "nickName": "Loki",
+                    "img": "loki.jpg",
                     "messages": [
+                        {
+                            "type": "text",
+                            "text": "hey Sahar",
+                            "inout": "in",
+                            "time": "10:00",
+                            "date": "Jun 10"
+                        },
+                        {
+                            "type": "image",
+                            "text": "loki.jpg",
+                            "inout": "out",
+                            "time": "10:00",
+                            "date": "Jun 10"
+                        },
+                        {
+                            "type": "video",
+                            "text": "vid1.mp4",
+                            "inout": "out",
+                            "time": "9:00",
+                            "date": "Jun 11"
+                        },
+                        {
+                            "type": "text",
+                            "text": "hey how are you?",
+                            "inout": "in",
+                            "time": "10:00",
+                            "date": "Jun 10"
+                        },
+                        {
+                            "type": "voice",
+                            "text": "msg1.mp3",
+                            "inout": "out",
+                            "time": "10:00",
+                            "date": "Jun 10"
+                        },
+                        {
+                            "type": "text",
+                            "text": "can you answer please?",
+                            "inout": "in",
+                            "time": "10:00",
+                            "date": "Jun 10"
+                        }
+                    ]
+                },
+                {
+                    "nickName": "Thor",
+                    "img": "thor.jpg",
+                    "messages": [
+                        {
+                            "type": "voice",
+                            "text": "msg2.mp3",
+                            "inout": "out",
+                            "time": "10:00",
+                            "date": "Jun 10"
+                        },
                         {
                             "type": "image",
                             "text": "saharofe.jpg",
@@ -16,11 +71,32 @@
                         },
                         {
                             "type": "video",
-                            "text": "video.mp4",
+                            "text": "vid1.mp4",
                             "inout": "out",
                             "time": "9:00",
                             "date": "Jun 11"
                         },
+                        {
+                            "type": "text",
+                            "text": "nice video!",
+                            "inout": "in",
+                            "time": "10:00",
+                            "date": "Jun 10"
+                        },
+
+                        {
+                            "type": "text",
+                            "text": "cool",
+                            "inout": "in",
+                            "time": "10:00",
+                            "date": "Jun 10"
+                        }
+                    ]
+                },
+                {
+                    "nickName": "Tony",
+                    "img": "ironman.jpg",
+                    "messages": [
                         {
                             "type": "text",
                             "text": "workinggg",
@@ -29,8 +105,23 @@
                             "date": "Jun 10"
                         },
                         {
+                            "type": "image",
+                            "text": "ironMan.jpg",
+                            "inout": "in",
+                            "time": "10:00",
+                            "date": "Jun 10"
+                        },
+                        {
+                            "type": "video",
+                            "text": "vid1.mp4",
+                            "inout": "out",
+                            "time": "9:00",
+                            "date": "Jun 11"
+                        },
+
+                        {
                             "type": "voice",
-                            "text": "video.mp4",
+                            "text": "msg3.mp3",
                             "inout": "out",
                             "time": "10:00",
                             "date": "Jun 10"
@@ -45,19 +136,67 @@
                     ]
                 },
                 {
-                    "nickName": "Ben",
-                    "img": "saharofe.jpg",
+                    "nickName": "Steven",
+                    "img": "doctorStrange.jpg",
                     "messages": [
                         {
+                            "type": "image",
+                            "text": "saharofe.jpg",
+                            "inout": "out",
+                            "time": "10:00",
+                            "date": "Jun 10"
+                        },
+                        {
+                            "type": "video",
+                            "text": "vid1.mp4",
+                            "inout": "out",
+                            "time": "9:00",
+                            "date": "Jun 11"
+                        },
+                        {
                             "type": "text",
-                            "text": "hii ben",
+                            "text": "workinggg",
                             "inout": "in",
                             "time": "10:00",
                             "date": "Jun 10"
                         },
                         {
+                            "type": "voice",
+                            "text": "msg4.mp3",
+                            "inout": "out",
+                            "time": "10:00",
+                            "date": "Jun 10"
+                        },
+                        {
                             "type": "text",
-                            "text": "hii ben",
+                            "text": "hii",
+                            "inout": "in",
+                            "time": "10:00",
+                            "date": "Jun 10"
+                        }
+                    ]
+                },
+                {
+                    "nickName": "T'Challa",
+                    "img": "blackPanther.jpg",
+                    "messages": [
+                        {
+                            "type": "video",
+                            "text": "vid1.mp4",
+                            "inout": "out",
+                            "time": "10:00",
+                            "date": "Jun 10"
+                        },
+                        {
+                            "type": "image",
+                            "text": "blackPanther.jpg",
+                            "inout": "out",
+                            "time": "9:00",
+                            "date": "Jun 11"
+                        },
+                        {
+                            "type": "voice",
+                            "text": "msg5.mp3",
                             "inout": "out",
                             "time": "10:00",
                             "date": "Jun 10"
@@ -72,65 +211,85 @@
                     ]
                 }
             ]
-        },
-        {
-            "username": "Beneli",
-            "data": [
-                {
-                    "nickName": "sahar",
-                    "img": "saharofe.jpg",
-                    "messages": [
-                        {
-                            "type": "text",
-                            "text": "hii ben",
-                            "inout": "in",
-                            "time": "10:00",
-                            "date": "Jun 10"
-                        },
-                        {
-                            "type": "text",
-                            "text": "hii ben",
-                            "inout": "in",
-                            "time": "10:00",
-                            "date": "Jun 10"
-                        },
-                        {
-                            "type": "text",
-                            "text": "hii ben",
-                            "inout": "in",
-                            "time": "10:00",
-                            "date": "Jun 10"
-                        }
-                    ]
                 },
                 {
-                    "nickName": "Ben",
-                    "img": "saharofe.jpg",
-                    "messages": [
+                    "username": "ironMan",
+                    "data": []
+                },
+                {
+                    "username": "Loki",
+                    "data": []
+                },
+                {
+                    "username": "Thor",
+                    "data": []
+                },
+                {
+                    "username": "blackPanther",
+                    "data": []
+                },
+                {
+                    "username": "doctorStrange",
+                    "data": []
+                },
+                {
+                    "username": "Beneli",
+                    "data": [
                         {
-                            "type": "text",
-                            "text": "hii ben",
-                            "inout": "in",
-                            "time": "10:00",
-                            "date": "Jun 10"
+                            "nickName": "sahar",
+                            "img": "saharofe.jpg",
+                            "messages": [
+                                {
+                                    "type": "text",
+                                    "text": "hii ben",
+                                    "inout": "in",
+                                    "time": "10:00",
+                                    "date": "Jun 10"
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "hii ben",
+                                    "inout": "in",
+                                    "time": "10:00",
+                                    "date": "Jun 10"
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "hii ben",
+                                    "inout": "in",
+                                    "time": "10:00",
+                                    "date": "Jun 10"
+                                }
+                            ]
                         },
                         {
-                            "type": "text",
-                            "text": "hii ben",
-                            "inout": "in",
-                            "time": "10:00",
-                            "date": "Jun 10"
-                        },
-                        {
-                            "type": "text",
-                            "text": "hii ben",
-                            "inout": "in",
-                            "time": "10:00",
-                            "date": "Jun 10"
+                            "nickName": "Ben",
+                            "img": "imgBen.jpeg",
+                            "messages": [
+                                {
+                                    "type": "text",
+                                    "text": "hii ben",
+                                    "inout": "in",
+                                    "time": "10:00",
+                                    "date": "Jun 10"
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "hii ben",
+                                    "inout": "in",
+                                    "time": "10:00",
+                                    "date": "Jun 10"
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "hii ben",
+                                    "inout": "in",
+                                    "time": "10:00",
+                                    "date": "Jun 10"
+                                }
+                            ]
                         }
                     ]
                 }
             ]
         }
-    ]
-}
