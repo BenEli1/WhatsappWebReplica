@@ -3,8 +3,8 @@ First Part - Client Side:
 In the project directory, you can run:
 ### `npm start` in order to run the project.
 
-userName - Sahar , password-SR123456 - this is where you will see the chat with 5 users including hard-coded chats.
-
+username - Sahar , password-SR123456 - this is where you will see the chat with 5 users including hard-coded chats.
+(you can try adding contact - benny)
 
 
 LoginPage - checks if the username and password exists in the database and if not you can go and create an account.
