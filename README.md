@@ -31,7 +31,11 @@ in addition added feature to see last messsage + content.
 
 ![chatLastSeen](https://user-images.githubusercontent.com/92650578/163668993-a2bca0ca-286e-4b07-a40c-d63478b06551.PNG)
 
-short video demonstrating adding a contact and sending some files/recordings.
+short video demonstrating logging in, adding a contact and sending some files/recordings and registering.
 
 https://user-images.githubusercontent.com/92650578/163669356-2dc7b03b-ecf4-4c48-88e5-cfcd34345e84.mp4
+
+
+
+https://user-images.githubusercontent.com/92650578/163669590-c8213471-c858-46e5-855b-16fd9b02d0dc.mp4
 
