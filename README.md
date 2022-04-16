@@ -33,9 +33,8 @@ in addition added feature to see last messsage + content.
 
 short video demonstrating logging in, adding a contact and sending some files/recordings and registering.
 
-https://user-images.githubusercontent.com/92650578/163669356-2dc7b03b-ecf4-4c48-88e5-cfcd34345e84.mp4
 
 
 
-https://user-images.githubusercontent.com/92650578/163669590-c8213471-c858-46e5-855b-16fd9b02d0dc.mp4
+https://user-images.githubusercontent.com/92650578/163669691-bc4bcb0c-c693-498b-903e-6b4c32714971.mp4
 
