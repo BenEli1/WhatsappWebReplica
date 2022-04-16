@@ -19,11 +19,11 @@ Chat- Consists of contact on the left and the message box on the right.
 
 ![chat with vid img msg and recording](https://user-images.githubusercontent.com/92650578/163668962-29ebee7e-3ca0-4543-8918-508b7b7851a7.PNG)
 
-Add-Contact Modal- pop'sup a modal and alerts if the user with the nickname you provided was add'ed successfully or not.
+Add-Contact Modal- pop's up a modal and alerts if the user with the nickname you provided was add'ed successfully or not.
 
 ![addContactModal](https://user-images.githubusercontent.com/92650578/163668968-774d4662-69d1-41c4-8d99-03c493124690.PNG)
 
-Attachments- the attachments button opens up 3 buttons - image upload,video upload and recording upload. upon click on the buttons, it will open file archive in your computer in order to select an image/video. the video button will start recording and will stop after another click on the button.
+Attachments- the attachments button opens up 3 buttons - image upload,video upload and recording. upon click on the image/videobuttons, it will open file archive in your computer in order to select an image/video. the recording button will start recording and will stop after another click on the button.
 
 ![attachments](https://user-images.githubusercontent.com/92650578/163668979-16f0cb7a-e5c8-4a37-9387-264a4d0e1d67.PNG) , ![recording](https://user-images.githubusercontent.com/92650578/163668983-c30b1786-2315-4e3c-9d4d-1ee7e287e1d7.PNG)
 
