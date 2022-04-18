@@ -28,10 +28,10 @@ function NavBarChat({doSearch, UserName, cardsList}){
             doSearch(nickname, img)
             setTimeout( function ( ) { Alert( 'You have added a contact successfully','success' ); }, 0 );
             }else{
-                setTimeout(function () { Alert('Nickname not found/already added', 'danger'); }, 0);
+                setTimeout(function () { Alert('User not found/already added', 'danger'); }, 0);
             }
         } else {
-            setTimeout(function () { Alert('Nickname not found/already added', 'danger'); }, 0);
+            setTimeout(function () { Alert('User not found/already added', 'danger'); }, 0);
         }
     }
 
