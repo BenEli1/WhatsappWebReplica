@@ -11,7 +11,7 @@ LoginPage - checks if the username and password exists in the database and if no
 
 ![Capture](https://user-images.githubusercontent.com/92650578/163668943-1fa06b1a-a58b-484e-b0af-5b3af40330b9.PNG)
 
-RegisterPage- can't leave anything empty and cant choose an exisiting username/nickname.
+RegisterPage- can't leave anything empty and cant choose an exisiting username(and more restrictions on password length and username length and content).
 
 ![register](https://user-images.githubusercontent.com/92650578/163668959-bf5b84b6-e275-49d9-aa61-583f06c395fc.PNG)
 
