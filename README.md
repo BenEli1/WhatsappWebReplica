@@ -4,7 +4,7 @@ In the project directory, you can run:
 ### `npm start` in order to run the project.
 
 username - Sahar , password-SR123456 - this is where you will see the chat with 5 users including hard-coded chats.
-(you can try adding contact - benny)
+(you can try adding contact - Beneli)
 
 
 LoginPage - checks if the username and password exists in the database and if not you can go and create an account.
@@ -19,7 +19,7 @@ Chat- Consists of contacts on the left and the message box on the right.
 
 ![chat with vid img msg and recording](https://user-images.githubusercontent.com/92650578/163668962-29ebee7e-3ca0-4543-8918-508b7b7851a7.PNG)
 
-Add-Contact Modal- pop's up a modal and alerts if the user with the nickname you provided was add'ed successfully or not.
+Add-Contact Modal- pop's up a modal and alerts if the user with the username you provided was add'ed successfully or not.
 
 ![addContactModal](https://user-images.githubusercontent.com/92650578/163668968-774d4662-69d1-41c4-8d99-03c493124690.PNG)
 
