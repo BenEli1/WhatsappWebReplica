@@ -34,11 +34,6 @@ function Register(){
             event.preventDefault();
             return;
         }
-        if(!isNickNameExist(nickname)){
-            $('#invalidInput').append(invalidInput("Nickname", "Nickname already in use"));
-            event.preventDefault();
-            return;
-        }
         if(!isPasswordValid(password)){
             event.preventDefault();
             $('#invalidInput').append(invalidInput("Password","The password should be 6-20 characters long and must contain numbers and capital letters"));

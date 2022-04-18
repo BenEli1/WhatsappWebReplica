@@ -7,7 +7,6 @@ class DataBase{
 
     add(userName, password, nickName, image){
         this.users.push(new User(userName, password, nickName, image));
-        console.log(userName);
     }
 
     isUserExist(userName, password){

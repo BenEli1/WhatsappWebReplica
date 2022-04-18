@@ -10,8 +10,8 @@ function NavBarChat({doSearch, UserName, cardsList}){
 
     const addContact = function (event) {
         event.preventDefault()
-        let nickname = document.getElementById('floatingInput').value;
-        let user = (dataBase.getUserByNickName(nickname));
+        let username = document.getElementById('floatingInput').value;
+        let user = (dataBase.getUserByUserName(username));
         var alertPlaceholder = document.getElementById('liveAlertPlaceholder');
         var alertTrigger = document.getElementById('sign');
         function Alert(message, type) {
@@ -20,12 +20,16 @@ function NavBarChat({doSearch, UserName, cardsList}){
             wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
             alertPlaceholder.append(wrapper);
         }
-        var valid=JSON.stringify(cardsList).includes(nickname);
-
-        if (user&&!valid) {
+        if (user) {
             let img = user.image;
+            let nickname = user.nickName;
+            var valid=JSON.stringify(cardsList).includes(nickname) && JSON.stringify(cardsList).includes(img);
+            if(!valid){
             doSearch(nickname, img)
             setTimeout( function ( ) { Alert( 'You have added a contact successfully','success' ); }, 0 );
+            }else{
+                setTimeout(function () { Alert('Nickname not found/already added', 'danger'); }, 0);
+            }
         } else {
             setTimeout(function () { Alert('Nickname not found/already added', 'danger'); }, 0);
         }
