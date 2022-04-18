@@ -95,5 +95,3 @@ function NavBarChat({doSearch, UserName, cardsList}){
 
 
 export default NavBarChat;
-
-//nickName={nickname} image={img} date="0"
