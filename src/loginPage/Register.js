@@ -7,7 +7,7 @@ import User from '../Users/User';
 import dataBase from "../Users/dataBaseObject";
 import {useNavigate} from 'react-router-dom'
 import dataBaseMessages from "../Chat/dataBaseMessages.json"
-function Register(){
+function Register({change}){
 
     var navigate = useNavigate();
     function signUp(event){
@@ -58,7 +58,8 @@ function Register(){
         dataBaseMessages.dataBaseMessages.push({username : userName, "data" : []})
         //alert(JSON.stringify(dataBaseMessages.dataBaseMessages))
         event.preventDefault();
-        navigate("/");
+        change(userName)
+        navigate("/chat");
     }
 
     return(
