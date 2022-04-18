@@ -13,7 +13,7 @@ function HomePage({change}){
             <Routes>
               <Route path="/" element={<Login change={change} />}>
               </Route>
-              <Route path="/register" element={<Register />}>
+              <Route path="/register" element={<Register change={change} />}>
               </Route>
             </Routes>
           </div>

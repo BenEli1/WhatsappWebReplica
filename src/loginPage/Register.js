@@ -59,7 +59,7 @@ function Register({change}){
         //alert(JSON.stringify(dataBaseMessages.dataBaseMessages))
         event.preventDefault();
         change(userName)
-        navigate("/chat");
+        navigate(`/chat?userName=${userName}`);  
     }
 
     return(
