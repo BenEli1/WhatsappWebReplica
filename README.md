@@ -3,6 +3,8 @@ First Part - Client Side:
 In the project directory, you can run:
 ### `npm start` in order to run the project.
 
+we used react - router library.
+
 username - Sahar , password-SR123456 - this is where you will see the chat with 5 users including hard-coded chats.
 (you can try adding contact - Beneli)
 
