@@ -3,9 +3,9 @@ First Part - Client Side:
 In the project directory, you can run:
 ### `npm start` in order to run the project.
 
-we used react - router library.
+We used react - router library.
 
-username - Sahar , password-SR123456 - this is where you will see the chat with 5 users including hard-coded chats.
+Username - Sahar , password-SR123456 - this is where you will see the chat with 5 users including hard-coded chats.
 (you can try adding contact - Beneli)
 
 
@@ -29,11 +29,11 @@ Attachments- the attachments button opens up 3 buttons - image upload,video uplo
 
 ![attachments](https://user-images.githubusercontent.com/92650578/163668979-16f0cb7a-e5c8-4a37-9387-264a4d0e1d67.PNG) , ![recording](https://user-images.githubusercontent.com/92650578/163668983-c30b1786-2315-4e3c-9d4d-1ee7e287e1d7.PNG)
 
-in addition added feature to see last messsage + content.
+In addition added feature to see last messsage + content.
 
 ![chatLastSeen](https://user-images.githubusercontent.com/92650578/163668993-a2bca0ca-286e-4b07-a40c-d63478b06551.PNG)
 
-short video demonstrating logging in, adding a contact and sending some files/recordings and registering.
+Short video demonstrating logging in, adding a contact and sending some files/recordings and registering.
 
 
 
