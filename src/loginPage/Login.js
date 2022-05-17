@@ -6,6 +6,23 @@ import {useState} from 'react'
 
 function Login({change}){
 
+  async function isUserExist(username, password){
+
+        const res = await fetch("https://localhost:7227/api/Users", {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Access-Control-Allow-Credentials' : "*"
+        },
+        mode: "no-cors",
+      });
+
+      alert(res);
+      var user = res.filter(x => x.userName == username && x.password == password);
+      return user != {};
+  }
+
   let navigate = useNavigate();
 
   function login(event){
@@ -16,7 +33,7 @@ function Login({change}){
     const userName = form.elements['username-login'].value;
     const password = form.elements['password-login'].value;
     
-    if(!(dataBase.isUserExist(userName, password))){
+    if(!(isUserExist(userName, password))){
       event.preventDefault();
       $('#userNotExist').append(
         '<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">' +

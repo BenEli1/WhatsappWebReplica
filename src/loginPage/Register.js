@@ -9,6 +9,19 @@ import {useNavigate} from 'react-router-dom'
 import dataBaseMessages from "../Chat/dataBaseMessages.json"
 function Register({change}){
 
+    const axios = require('axios').default;
+
+    async function post(userName, nickname, password, url2){
+        var response = await axios.post('https://localhost:7227/api/Users' ,{
+            "userName": userName,
+            "nickName": nickname,
+            "password": password,
+            "image": url2,
+            "server": "localhost:7227",
+        }, {mode : "no-cors"}, {headers: {"content-type" : "text/json", 
+        'Access-Control-Allow-Credentials' : "*"}});
+    }
+
     var navigate = useNavigate();
     function signUp(event){
         //get the form
@@ -21,7 +34,7 @@ function Register({change}){
         let confirmPassword = form.elements['confirm_password'].value
         let image = form.elements['imageFromUser'].value
         let image2= form.elements['imageFromUser'].files[0]
-        var url2 = URL.createObjectURL(image2);
+        const url2 = URL.createObjectURL(image2);
 
         //check validation
         if(!isUserNameValid(userName)){
@@ -56,17 +69,52 @@ function Register({change}){
 
         //dataBase.add(userName, password, nickname, url2);
         //dataBaseMessages.dataBaseMessages.push({username : userName, "data" : []})
-        const axios = require('axios').default;
+    
+        post(userName, nickname, password, url2);
+   
 
-        axios.post("https://localhost:7227/api/Users" ,{
-            UserName: userName,
-            NickName: nickname,
-            Password: password,
-            Image: url2,
-            server: "localhost:7227",
-            Contacts: []
+        /*(async () => {
+            const rawResponse = await fetch("https://localhost:7227/api/Users", {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Access-Control-Allow-Credentials' : "*"
+              },
+              AccessControlAllowCredentials: "*",
+              Accept: 'application/json',
+              mode: "no-cors",
+              body: JSON.stringify({
+                UserName: userName,
+                NickName: nickname,
+                Password: password,
+                Image: url2,
+                Server: "localhost:7227",
+            })
+            });
+          })();*/
 
-        });
+        /*fetch('https://localhost:7227/api/Users', {
+            method: "post",
+            headers: {
+              'mode' : 'no-cors',
+              'Authorization': 'Bearer my-token',
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Credentials' : 'true'
+            },
+            body: JSON.stringify({
+                UserName: userName,
+                NickName: nickname,
+                Password: password,
+                Image: url2,
+                Server: "localhost:7227",
+                Contacts: []
+    
+            })
+          })*/
+
+
 
         //alert(JSON.stringify(dataBaseMessages.dataBaseMessages))
         event.preventDefault();
@@ -77,7 +125,7 @@ function Register({change}){
     return(
         <div>
             <span id="invalidInput"></span>
-            <form onSubmit={e => signUp(e)} id="registerForm">
+            <form onSubmit={e => signUp(e)} id="registerForm" method="post">
                 <div className="input-group flex-nowrap">
                     <span className="input-group-text">Username</span>
                     <input type="text" id="username-register" required className="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping"></input>
