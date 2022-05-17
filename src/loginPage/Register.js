@@ -54,8 +54,20 @@ function Register({change}){
         //if everything OK submit the function
        // ImageThumb(image);
 
-        dataBase.add(userName, password, nickname, url2);
-        dataBaseMessages.dataBaseMessages.push({username : userName, "data" : []})
+        //dataBase.add(userName, password, nickname, url2);
+        //dataBaseMessages.dataBaseMessages.push({username : userName, "data" : []})
+        const axios = require('axios').default;
+
+        axios.post("https://localhost:7227/api/Users" ,{
+            UserName: userName,
+            NickName: nickname,
+            Password: password,
+            Image: url2,
+            server: "localhost:7227",
+            Contacts: []
+
+        });
+
         //alert(JSON.stringify(dataBaseMessages.dataBaseMessages))
         event.preventDefault();
         change(userName)
