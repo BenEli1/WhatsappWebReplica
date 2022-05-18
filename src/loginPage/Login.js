@@ -9,19 +9,33 @@ function Login({change}){
   let navigate = useNavigate();
   let isUSerExist;
 
-  async function internSession(userName) {
+  async function internSession(username){
+    
     const res = await fetch('https://localhost:7227/api/contacts/Login', {
-      method: 'PUT',
+      method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Access-Control-Allow-Credentials': '*'
       },
-      body: JSON.stringify({
-        username: userName
-      })
+      mode: 'cors',
+      body: JSON.stringify({username: username})
     })
   }
+
+  /*const axios = require('axios').default;
+  async function internSession(userName) {
+    var response = await axios.post('https://localhost:7227/api/Users/Login', {
+      "username" : userName
+    },
+     {
+   headers: { 
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Credentials': '*'
+      } });
+  } */
+
 
   async function isuserExist(username, password){
     const res = await fetch("https://localhost:7227/api/Users", {
@@ -67,7 +81,7 @@ function Login({change}){
       }).then(() => 
       {
           if(isUSerExist == 1){
-            internSession(userName).then(res => console.log(res));
+            internSession(userName);
           }
       }
       );

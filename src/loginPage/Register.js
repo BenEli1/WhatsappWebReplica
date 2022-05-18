@@ -110,7 +110,7 @@ function Register({change}){
                     Contacts: []
                 })
             }
-            ).then(res => console.log(res));
+            );
         }
 
         post(userName, nickname, password, url2).then( () => {
