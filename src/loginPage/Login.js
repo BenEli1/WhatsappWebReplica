@@ -6,24 +6,29 @@ import {useState} from 'react'
 
 function Login({change}){
 
-  async function isUserExist(username, password){
-
-        const res = await fetch("https://localhost:7227/api/Users", {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Access-Control-Allow-Credentials' : "*"
-        },
-        mode: "no-cors",
-      });
-
-      alert(res);
-      var user = res.filter(x => x.userName == username && x.password == password);
-      return user != {};
-  }
-
   let navigate = useNavigate();
+  let isUSerExist;
+
+  async function isuserExist(username, password){
+    const res = await fetch("https://localhost:7227/api/Users", {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Credentials' : "*"
+    },
+   // mode: "no-cors",
+  });
+  const data = await res.json();
+  for(var i in data){
+    if(data[i]["userName"] === username && data[i]["password"] === password){
+      isUSerExist = 1;
+      return 1;
+    }
+  }
+  isUSerExist = 0;
+  return 0;
+  }
 
   function login(event){
     event.preventDefault()
@@ -33,7 +38,9 @@ function Login({change}){
     const userName = form.elements['username-login'].value;
     const password = form.elements['password-login'].value;
     
-    if(!(isUserExist(userName, password))){
+    isuserExist(userName, password).then(() => {
+    console.log(isUSerExist);
+    if(isUSerExist == 0){
       event.preventDefault();
       $('#userNotExist').append(
         '<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">' +
@@ -41,10 +48,12 @@ function Login({change}){
         '<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>' +
       '</div>'
       )
-      return;
-    }
+    } else {
+      console.log(2);
     change(userName);
     navigate(`/chat?userName=${userName}`);  
+    }
+  });
   }
 
 
@@ -68,5 +77,7 @@ function Login({change}){
       </div>
 );
 }
+
+
 
 export default Login;

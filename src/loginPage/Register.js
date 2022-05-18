@@ -9,22 +9,22 @@ import {useNavigate} from 'react-router-dom'
 import dataBaseMessages from "../Chat/dataBaseMessages.json"
 function Register({change}){
 
-    const axios = require('axios').default;
+    //const axios = require('axios').default;
 
-    async function post(userName, nickname, password, url2){
+    /*async function post(userName, nickname, password, url2){
         var response = await axios.post('https://localhost:7227/api/Users' ,{
             "userName": userName,
             "nickName": nickname,
             "password": password,
             "image": url2,
             "server": "localhost:7227",
-        }, {mode : "no-cors"}, {headers: {"content-type" : "text/json", 
-        'Access-Control-Allow-Credentials' : "*"}});
-    }
+        }, {mode : "no-cors"}, {headers: {"content-type" : "text/json"}});
+    }*/
 
     var navigate = useNavigate();
     function signUp(event){
         //get the form
+        event.preventDefault();
         $('div').remove("#invalidInput div");
         const form = document.getElementById("registerForm");
         //get the inputs from the form
@@ -70,9 +70,6 @@ function Register({change}){
         //dataBase.add(userName, password, nickname, url2);
         //dataBaseMessages.dataBaseMessages.push({username : userName, "data" : []})
     
-        post(userName, nickname, password, url2);
-   
-
         /*(async () => {
             const rawResponse = await fetch("https://localhost:7227/api/Users", {
               method: 'POST',
@@ -94,38 +91,39 @@ function Register({change}){
             });
           })();*/
 
-        /*fetch('https://localhost:7227/api/Users', {
-            method: "post",
-            headers: {
-              'mode' : 'no-cors',
-              'Authorization': 'Bearer my-token',
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Credentials' : 'true'
-            },
-            body: JSON.stringify({
-                UserName: userName,
-                NickName: nickname,
-                Password: password,
-                Image: url2,
-                Server: "localhost:7227",
-                Contacts: []
-    
-            })
-          })*/
+        async function post(userName, nickname, password, url2) {
 
+            const res = await fetch('https://localhost:7227/api/Users', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Credentials': '*'
+                },
+                mode : 'cors',
+                body: JSON.stringify({
+                    UserName: userName,
+                    NickName: nickname,
+                    Password: password,
+                    Image: url2,
+                    Server: "localhost:7227",
+                    Contacts: []
+                })
+            }
+            ).then(res => console.log(res));
+        }
 
-
+        post(userName, nickname, password, url2).then( () => {
         //alert(JSON.stringify(dataBaseMessages.dataBaseMessages))
-        event.preventDefault();
-        change(userName)
+        change(userName);
         navigate(`/chat?userName=${userName}`);  
+        })
     }
 
     return(
         <div>
             <span id="invalidInput"></span>
-            <form onSubmit={e => signUp(e)} id="registerForm" method="post">
+            <form onSubmit={e => signUp(e)} id="registerForm">
                 <div className="input-group flex-nowrap">
                     <span className="input-group-text">Username</span>
                     <input type="text" id="username-register" required className="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping"></input>
