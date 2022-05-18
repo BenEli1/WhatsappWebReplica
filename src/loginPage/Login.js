@@ -9,6 +9,20 @@ function Login({change}){
   let navigate = useNavigate();
   let isUSerExist;
 
+  async function internSession(userName) {
+    const res = await fetch('https://localhost:7227/api/contacts/Login', {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Credentials': '*'
+      },
+      body: JSON.stringify({
+        username: userName
+      })
+    })
+  }
+
   async function isuserExist(username, password){
     const res = await fetch("https://localhost:7227/api/Users", {
     method: 'GET',
@@ -30,30 +44,33 @@ function Login({change}){
   return 0;
   }
 
-  function login(event){
+  function login(event) {
     event.preventDefault()
     $('div').remove("#userNotExist div");
     const form = document.getElementById("loginForm");
     //get the inputs from the form
     const userName = form.elements['username-login'].value;
     const password = form.elements['password-login'].value;
-    
+
     isuserExist(userName, password).then(() => {
-    console.log(isUSerExist);
-    if(isUSerExist == 0){
-      event.preventDefault();
-      $('#userNotExist').append(
-        '<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">' +
-        'Usermane or Password are incorrect.' +
-        '<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>' +
-      '</div>'
-      )
-    } else {
-      console.log(2);
-    change(userName);
-    navigate(`/chat?userName=${userName}`);  
-    }
-  });
+      if (isUSerExist == 0) {
+        $('#userNotExist').append(
+          '<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">' +
+          'Usermane or Password are incorrect.' +
+          '<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>' +
+          '</div>'
+        )
+      } else {
+          change(userName); 
+          navigate(`/chat?userName=${userName}`);
+      }
+      }).then(() => 
+      {
+          if(isUSerExist == 1){
+            internSession(userName).then(res => console.log(res));
+          }
+      }
+      );
   }
 
 
