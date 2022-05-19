@@ -9,9 +9,9 @@ function App() {
   const [changeUSer, setChangeUser] = useState(true);
 
   const changeUser = function(user){
-    //setChangeUser(!changeUSer);
     setUserName(user);
     setChangeUser(!changeUSer);
+    //setChangeUser(!changeUSer);
   }
     
 
