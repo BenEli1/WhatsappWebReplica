@@ -6,19 +6,13 @@ function Chatusers({cardsList, chooseContact}){
     var userList = list()
     
     function list(){
-        if(cardsList.length == 0){
+        if(cardsList == null){
             return '';
         }
         return cardsList.map((person,key) =>
         {
-            if(person.messages.length == 0){
-                return <ChatUSerCard lastMessage="" 
+                return <ChatUSerCard 
                 {...person} key={key} chooseContact={chooseContact} />
-            }
-            return <ChatUSerCard lastMessage={lastMessage(person)} 
-        {...person} key={key}
-         lastDate={date(person.messages.at(person.messages.length - 1)["time"],person.messages.at(person.messages.length - 1)["date"])} chooseContact={chooseContact} />
-    
         });
     }
 

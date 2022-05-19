@@ -18,14 +18,36 @@ function Chat({UserName}){
         }
     }
 
-    var data = dataBaseMessages.dataBaseMessages.at(findIndex())["data"];
+    var data = null; 
+    
+    async function GetContacts(){
+    
+        const res = await fetch('https://localhost:7227/api/contacts?username=' + UserName, {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Credentials': '*'
+          },
+          mode: 'cors',
+        })
+        data = await res.json();
+    }
+
     //alert(JSON.stringify(data));
     const [cardsList, setCardsList] = useState(data);
+
+    GetContacts().then(() => {
+        if(cardsList == null){
+            setCardsList(data)
+        } 
+    });
+   
     const [changeState , setChangeState] = useState(false)
     const [contact, setContact] = useState('')
 
     useEffect(() => {
-        document.querySelector('#scroolBotoom').scrollIntoView()
+        document.querySelector('#scroolBotoom').scrollIntoView();
       });
 
     const chooseContact = function(contact){
@@ -43,16 +65,29 @@ function Chat({UserName}){
         setChangeState(!changeState)
     }
 
-    const addMessage = function(text, type){
+    async function addPostMessage(text){
         let date = new Date();
-        cardsList.at(findIndexContact())["messages"].push({ 
-            "type" : type,
-            "text" : text,
-            "inout" : "out",
-            "time" : date.getHours().toString().padStart(2, '0') + ":" + date.getMinutes().toString().padStart(2, '0'),
-            "date" : date.getDate().toString().padStart(2, '0') + "." + (parseInt(date.getMonth()) + 1).toString().padStart(2, '0')
+        const res = await fetch('https://localhost:7227/api/contacts/' + contact + '/messages?username=' + UserName, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Credentials': '*'
+          },
+          mode: 'cors',
+          body: JSON.stringify({
+            Id: 5,
+            Text: text,
+            Date: date.getHours().toString().padStart(2, '0') + ":" + date.getMinutes().toString().padStart(2, '0') +
+                    date.getDate().toString().padStart(2, '0') + "." + (parseInt(date.getMonth()) + 1).toString().padStart(2, '0') ,
+            InOut: "true",
         })
-        setChangeState(!changeState);
+        })
+        data = await res.json();
+    }
+
+    const addMessage = function(text, type){
+        addPostMessage(text).then( () => setChangeState(!changeState));
     }
 
     function findIndexContact(){
