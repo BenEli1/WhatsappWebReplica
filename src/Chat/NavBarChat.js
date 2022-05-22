@@ -7,7 +7,7 @@ import Chat from './Chat';
 function NavBarChat({doSearch, UserName, cardsList}){
     var data = null;
     async function isuserExist(){
-        const res = await fetch("https://localhost:7227/api/contacts/Users?username=" + UserName,{
+        const res = await fetch("https://localhost:7227/api/Users?username=" + UserName,{
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
