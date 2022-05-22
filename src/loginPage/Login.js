@@ -1,5 +1,4 @@
 import { BrowserRouter, Link } from "react-router-dom";
-import dataBase from "../Users/dataBaseObject";
 import $ from "jquery";
 import {useNavigate} from 'react-router-dom'
 import {useState} from 'react'
@@ -9,9 +8,9 @@ function Login({change}){
   let navigate = useNavigate();
   let isUSerExist;
 
-  async function internSession(username){
+  //async function internSession(username){
     
-    const res = await fetch('https://localhost:7227/api/contacts/Login', {
+   /* const res = await fetch('https://localhost:7227/api/contacts/Login', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -21,7 +20,7 @@ function Login({change}){
       mode: 'cors',
       body: JSON.stringify({username: username})
     })
-  }
+  }*/
 
   async function isuserExist(username, password){
     const res = await fetch("https://localhost:7227/api/Users", {
@@ -62,10 +61,18 @@ function Login({change}){
           '</div>'
         )
       }
+<<<<<<< HEAD
     }).then(() => {
       if (isUSerExist == 1) {
           change(userName);
           navigate(`/chat`);
+=======
+      }).then(() => 
+      {
+          if(isUSerExist == 1){
+            //internSession(userName);
+          }
+>>>>>>> 2cce3d37daa22e87d353ab5b33a33b13f7cd416b
       }
     });
   }
