@@ -2,11 +2,8 @@ import { hasSelectionSupport } from "@testing-library/user-event/dist/utils";
 import { BrowserRouter, Link, Route } from "react-router-dom";
 import $ from "jquery";
 import useState from 'react';
-import DataBase from '../Users/DataBase';
 import User from '../Users/User';
-import dataBase from "../Users/dataBaseObject";
 import {useNavigate} from 'react-router-dom'
-import dataBaseMessages from "../Chat/dataBaseMessages.json"
 function Register({change}){
 
     //const axios = require('axios').default;
@@ -39,11 +36,6 @@ function Register({change}){
         //check validation
         if(!isUserNameValid(userName)){
             $('#invalidInput').append(invalidInput("Username", "The username must be at least 3 characters long"));
-            event.preventDefault();
-            return;
-        }
-        if(!isUserNameExist(userName)){
-            $('#invalidInput').append(invalidInput("Username", "Username already in use"));
             event.preventDefault();
             return;
         }
@@ -201,24 +193,8 @@ function isUserNameValid(userName) {
     return userName.length >= 3;
 
 }
-function isUserNameExist(userName) {
-    for (let u in dataBase.users) {
-        if (userName === dataBase.users[u].userName) {
-            return false;
-        }
-    }
-    return true;
 
-}
-function isNickNameExist(nickName) {
-    for (let u in dataBase.users) {
-        if (nickName === dataBase.users[u].nickName) {
-            return false;
-        }
-    }
-    return true;
 
-}
 
 function isImageValid(file) {
     return file && file.toLowerCase().match(/\.(jpg|jpeg|png|gif)$/);

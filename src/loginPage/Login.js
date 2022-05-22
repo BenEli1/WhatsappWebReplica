@@ -1,5 +1,4 @@
 import { BrowserRouter, Link } from "react-router-dom";
-import dataBase from "../Users/dataBaseObject";
 import $ from "jquery";
 import {useNavigate} from 'react-router-dom'
 import {useState} from 'react'
