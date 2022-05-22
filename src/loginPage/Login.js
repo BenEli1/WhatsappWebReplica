@@ -23,20 +23,6 @@ function Login({change}){
     })
   }
 
-  /*const axios = require('axios').default;
-  async function internSession(userName) {
-    var response = await axios.post('https://localhost:7227/api/Users/Login', {
-      "username" : userName
-    },
-     {
-   headers: { 
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Credentials': '*'
-      } });
-  } */
-
-
   async function isuserExist(username, password){
     const res = await fetch("https://localhost:7227/api/Users", {
     method: 'GET',
@@ -47,6 +33,7 @@ function Login({change}){
     },
    // mode: "no-cors",
   });
+
   const data = await res.json();
   for(var i in data){
     if(data[i]["userName"] === username && data[i]["password"] === password){
@@ -74,17 +61,13 @@ function Login({change}){
           '<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button>' +
           '</div>'
         )
-      } else {
-          change(userName); 
-          navigate(`/chat?userName=${userName}`);
       }
-      }).then(() => 
-      {
-          if(isUSerExist == 1){
-            internSession(userName);
-          }
+    }).then(() => {
+      if (isUSerExist == 1) {
+          change(userName);
+          navigate(`/chat`);
       }
-      );
+    });
   }
 
 

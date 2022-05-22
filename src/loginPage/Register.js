@@ -22,6 +22,21 @@ function Register({change}){
     }*/
 
     var navigate = useNavigate();
+
+    async function internSession(username){
+    
+        const res = await fetch('https://localhost:7227/api/contacts/Login', {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Credentials': '*'
+          },
+          mode: 'cors',
+          body: JSON.stringify({username: username})
+        })
+      }
+
     function signUp(event){
         //get the form
         event.preventDefault();
@@ -64,32 +79,6 @@ function Register({change}){
             $('#invalidInput').append(invalidInput("Photo", "The file inserted is not an image"));
             return;
         }
-        //if everything OK submit the function
-       // ImageThumb(image);
-
-        //dataBase.add(userName, password, nickname, url2);
-        //dataBaseMessages.dataBaseMessages.push({username : userName, "data" : []})
-    
-        /*(async () => {
-            const rawResponse = await fetch("https://localhost:7227/api/Users", {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                'Access-Control-Allow-Credentials' : "*"
-              },
-              AccessControlAllowCredentials: "*",
-              Accept: 'application/json',
-              mode: "no-cors",
-              body: JSON.stringify({
-                UserName: userName,
-                NickName: nickname,
-                Password: password,
-                Image: url2,
-                Server: "localhost:7227",
-            })
-            });
-          })();*/
 
         async function post(userName, nickname, password, url2) {
 
@@ -116,7 +105,7 @@ function Register({change}){
         post(userName, nickname, password, url2).then( () => {
         //alert(JSON.stringify(dataBaseMessages.dataBaseMessages))
         change(userName);
-        navigate(`/chat?userName=${userName}`);  
+        navigate(`/chat?`);  
         })
     }
 
