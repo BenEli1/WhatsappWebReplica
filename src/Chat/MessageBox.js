@@ -7,6 +7,7 @@ function MessageBox({user, contact, cardsList}){
         if (contact == '')
             return;
        
+            
         const res = await fetch('https://localhost:7227/api/contacts/' + contact + '/messages?username=' + user, {
           method: 'GET',
           headers: {
