@@ -61,20 +61,14 @@ function Login({change}){
           '</div>'
         )
       }
-<<<<<<< HEAD
-    }).then(() => {
-      if (isUSerExist == 1) {
-          change(userName);
-          navigate(`/chat`);
-=======
       }).then(() => 
       {
           if(isUSerExist == 1){
-            //internSession(userName);
+            change(userName);
+            navigate('/chat');
+
           }
->>>>>>> 2cce3d37daa22e87d353ab5b33a33b13f7cd416b
-      }
-    });
+      });
   }
 
 
