@@ -3,8 +3,6 @@ import $ from "jquery";
 import React from 'react';
 import 'bootstrap';
 import ChatUSerCard from './chatUserCard';
-import dataBase from '../Users/dataBaseObject';
-import dataBaseMessages from "./dataBaseMessages.json"
 import Chat from './Chat';
 function NavBarChat({doSearch, UserName, cardsList}){
 
