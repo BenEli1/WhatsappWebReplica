@@ -1,9 +1,8 @@
 
 import React from "react";
 import "./CharUserCard.css"
-import dataBaseMessages from "./dataBaseMessages.json"
 
-function ChatUSerCard({id, chooseContact, last, lastdate}){
+function ChatUSerCard({id, chooseContact, last, lastdate,name,server}){
 
     const changeContact = function(){
         chooseContact(id)

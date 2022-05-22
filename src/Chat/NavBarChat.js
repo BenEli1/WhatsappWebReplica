@@ -5,11 +5,25 @@ import 'bootstrap';
 import ChatUSerCard from './chatUserCard';
 import Chat from './Chat';
 function NavBarChat({doSearch, UserName, cardsList}){
-
+    var data = null;
+    async function isuserExist(){
+        const res = await fetch("https://localhost:7227/api/Users?username=" + UserName,{
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Access-Control-Allow-Credentials' : "*"
+        },
+       // mode: "no-cors",
+      })
+      data = await res.json();
+    };
     const addContact = function (event) {
         event.preventDefault()
         let username = document.getElementById('floatingInput').value;
-        let user = (dataBase.getUserByUserName(username));
+        //let user = (dataBase.getUserByUserName(username));
+        isuserExist();
+        const user = data;
         var alertPlaceholder = document.getElementById('liveAlertPlaceholder');
         var alertTrigger = document.getElementById('sign');
         function Alert(message, type) {
@@ -21,9 +35,12 @@ function NavBarChat({doSearch, UserName, cardsList}){
         if (user) {
             let img = user.image;
             let nickname = user.nickName;
+            let last="";
+            let lastdate="";
+            let server="localhost:7227"
             var valid=JSON.stringify(cardsList).includes(nickname) && JSON.stringify(cardsList).includes(img);
             if(!valid){
-            doSearch(nickname, img)
+            doSearch(nickname, img,last,lastdate,server)
             setTimeout( function ( ) { Alert( 'You have added a contact successfully','success' ); }, 0 );
             }else{
                 setTimeout(function () { Alert('User not found/already added', 'danger'); }, 0);

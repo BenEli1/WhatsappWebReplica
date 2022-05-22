@@ -4,19 +4,11 @@ import { Route, Routes } from "react-router-dom";
 import $ from "jquery";
 import Chatusers from "./Chatusers";
 import React,{useState, useEffect} from 'react'
-import dataBaseMessages from "./dataBaseMessages.json"
 import InputMessage from "./InputMessage";
 import MessageBox from "./MessageBox";
 
 function Chat({UserName}){
 
-    function findIndex(){
-        for(let x in dataBaseMessages.dataBaseMessages){
-            if(dataBaseMessages.dataBaseMessages[x].username == UserName){
-                return x;
-            }
-        }
-    }
 
     var data = null; 
     
@@ -55,10 +47,15 @@ function Chat({UserName}){
         setChangeState(!changeState);
     }
 
-
-    const doSearch = function(n, i){
+    /*public string id { get; set; }
+    public string name { get; set; }
+    public string server { get; set; }
+    public string last { get; set; }
+    public string lastdate { get; set; }
+    public List<Message> Messages { get; set; }*/
+    const doSearch = function(id,name, server,last,lastdate){
         let newChat = {
-            "nickName" : n, "img": i, "messages": []
+            "id":id,"name":name,"server":server,"last":last,"lastdate":lastdate, "Messages": []
         }
         data.push(newChat)
         setCardsList(data);
