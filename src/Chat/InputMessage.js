@@ -27,7 +27,7 @@ function InputMessage({ addMessage }) {
     if(document.getElementById('sms').value == ''){
       return;
     }
-    addMessage(document.getElementById('sms').value,"text");
+    addMessage(document.getElementById('sms').value, "text");
     document.getElementById('sms').value = '';
   }
 
