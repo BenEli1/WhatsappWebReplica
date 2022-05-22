@@ -2,24 +2,25 @@ import ImageSms from "./ImageSms";
 import VideoSms from "./VideoSms";
 import VoiceSms from "./VoiceSms";
 
-function MessageCard({content, type, sent , created}){
+function MessageCard({text, inOut , date}){
     
     function rend(){
-        if(type == "text")
-            return content;
+        var type = "Text";
+        if(type == "Text")
+            return text;
         else if(type == "image"){
-            return <ImageSms text={content}/>
+            return <ImageSms text={text}/>
         }
         else if(type == "video"){
-            return <VideoSms text={content}/>
+            return <VideoSms text={text}/>
         }
         else if(type == "voice"){
-            return <VoiceSms text={content}/>
+            return <VoiceSms text={text}/>
         }
     }
 
     function Class(){
-        if (sent == "false"){
+        if (inOut == "false"){
             return "massageCardAccepted ";
         }
         else{
@@ -28,7 +29,7 @@ function MessageCard({content, type, sent , created}){
     }
 
     function color(){
-        if (sent == "false"){
+        if (inOut == "false"){
             return "alert-secondary";
         }
         else{
@@ -43,7 +44,7 @@ function MessageCard({content, type, sent , created}){
                 {rend()}
             </div>
         </div>
-        <span className="time_date"> {created}</span>
+        <span className="time_date"> {date}</span>
         </div>
     );
 }

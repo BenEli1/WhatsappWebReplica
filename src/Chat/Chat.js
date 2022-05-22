@@ -1,6 +1,6 @@
 import ChatUSerCard from "./chatUserCard";
 import NavBarChat from "./NavBarChat";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import $ from "jquery";
 import Chatusers from "./Chatusers";
 import React,{useState, useEffect} from 'react'
@@ -9,25 +9,24 @@ import MessageBox from "./MessageBox";
 
 function Chat({UserName}){
 
+    
 
     var data = null; 
-    
-    async function GetContacts(){
-    
-        const res = await fetch('https://localhost:7227/api/contacts?username=' + UserName, {
-          method: 'GET',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Credentials': '*'
-          },
-          mode: 'cors',
-        })
-        data = await res.json();
-    }
+    var mes = null;
 
+    useEffect(() =>
+    {if (UserName == '') navigate("/")}
+    );
+  
     //alert(JSON.stringify(data));
+    var navigate = useNavigate();
+        if (UserName == '' || UserName == null){
+            navigate('/');
+        }
+
     const [cardsList, setCardsList] = useState(data);
+
+    const [messages, setMessages] = useState(mes);
 
     GetContacts().then(() => {
         if(cardsList == null){
@@ -47,6 +46,12 @@ function Chat({UserName}){
         setChangeState(!changeState);
     }
 
+    GetMessages().then(()=> {
+        if(messages == null){
+            setMessages(mes);
+        }
+    })
+
     /*public string id { get; set; }
     public string name { get; set; }
     public string server { get; set; }
@@ -64,6 +69,8 @@ function Chat({UserName}){
 
     async function addPostMessage(text){
         let date = new Date();
+        let dateString = date.getHours().toString().padStart(2, '0') + ":" + date.getMinutes().toString().padStart(2, '0') 
+        + " | " + date.getDate().toString().padStart(2, '0') + "." + (parseInt(date.getMonth()) + 1).toString().padStart(2, '0');
         const res = await fetch('https://localhost:7227/api/contacts/' + contact + '/messages?username=' + UserName, {
           method: 'POST',
           headers: {
@@ -75,16 +82,17 @@ function Chat({UserName}){
           body: JSON.stringify({
             Id: 5,
             Text: text,
-            Date: date.getHours().toString().padStart(2, '0') + ":" + date.getMinutes().toString().padStart(2, '0') +
-                    date.getDate().toString().padStart(2, '0') + "." + (parseInt(date.getMonth()) + 1).toString().padStart(2, '0') ,
+            Date: dateString,
             InOut: "true",
         })
         })
-        data = await res.json();
+        //data = await res.json();
     }
 
-    const addMessage = function(text, type){
-        addPostMessage(text).then( () => setChangeState(!changeState));
+    const addMessage = async function(text, type){
+        await addPostMessage(text);
+        GetMessages().then(() => setMessages(mes));
+        GetContacts().then(() => setCardsList(data));
     }
 
     function findIndexContact(){
@@ -104,6 +112,40 @@ function Chat({UserName}){
         }
     }
 
+    async function GetMessages(){
+        if (contact == ''){
+            return;
+        }
+        const res = await fetch('https://localhost:7227/api/contacts/' +
+                     contact + '/messages?username=' + UserName, {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Credentials': '*'
+          },
+          mode: 'cors',
+        })
+
+        mes = await res.json();
+    }
+
+    async function GetContacts(){
+        if(UserName != ''){
+        const res = await fetch('https://localhost:7227/api/contacts?username=' + UserName, {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Credentials': '*'
+          },
+          mode: 'cors',
+        })
+        data = await res.json();
+        return
+    }
+    }
+
     return(
         <div className="container" id="Chat">
             <div className="row" id="ContactsRow">
@@ -116,7 +158,7 @@ function Chat({UserName}){
                     </div>
                 </div>
                 <div className="col-xl-8 col-lg-8 col-sm-8 col-8" id="rightChat"> 
-                <MessageBox user={UserName} contact={contact} cardsList={cardsList} />
+                <MessageBox user={UserName} mes={messages} contact={contact} cardsList={cardsList} />
                 {inputBox()}
                 <div id="scroolBotoom"></div>
                 </div>
