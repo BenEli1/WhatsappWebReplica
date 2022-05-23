@@ -108,6 +108,12 @@ function NavBarChat({AddContactToServer ,added ,UserName, cardsList}){
 
                         </li>
                         <li className="nav-item">
+                        <form action="https://localhost:7227/FeedBacks" method="get">
+                             <button type="submit" className="dropdown-item nav-link">Feedback Us</button>
+                             </form>
+
+                        </li>
+                        <li className="nav-item">
                             <Link to="/" className="dropdown-item nav-link">Log-out</Link>
                         </li>
                     </ul>

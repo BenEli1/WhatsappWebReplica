@@ -254,7 +254,7 @@ async function AddContactToServer(username, nickname, server){
     return(
         <div className="container" id="Chat">
             <div className="row" id="ContactsRow">
-                <div className="col-xl-4 col-lg-4 col-sm-4 col-4" id="leftChat">
+                <div className="col-xl-5 col-lg-5 col-sm-5 col-5" id="leftChat">
                     <div className="row">
                      <NavBarChat AddContactToServer={AddContactToServer} added={addedContact} cardsList={cardsList} UserName={UserName}/>
                     </div>
@@ -262,7 +262,7 @@ async function AddContactToServer(username, nickname, server){
                         <Chatusers cardsList={cardsList} chooseContact={chooseContact} />
                     </div>
                 </div>
-                <div className="col-xl-8 col-lg-8 col-sm-8 col-8" id="rightChat"> 
+                <div className="col-xl-7 col-lg-7 col-sm-7 col-7" id="rightChat"> 
                 <MessageBox user={UserName} mes={messages} contact={contact} cardsList={cardsList} />
                 {inputBox()}
                 <div id="scroolBotoom"></div>
