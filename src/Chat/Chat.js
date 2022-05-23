@@ -33,7 +33,11 @@ function Chat({UserName}){
             setCardsList(data)
         } 
     });
-   
+
+    function addedContact(){
+        GetContacts().then(() => setCardsList(data));
+    }
+
     const [changeState , setChangeState] = useState(false)
     const [contact, setContact] = useState('')
 
@@ -63,14 +67,14 @@ function Chat({UserName}){
     public string last { get; set; }
     public string lastdate { get; set; }
     public List<Message> Messages { get; set; }*/
-    const doSearch = function(id,name, server,last,lastdate){
+    /*const doSearch = function(id,name, server,last,lastdate){
         let newChat = {
             "id":id,"name":name,"server":server,"last":last,"lastdate":lastdate, "Messages": []
         }
         data.push(newChat)
         setCardsList(data);
         setChangeState(!changeState)
-    }
+    }*/
 
     async function addPostMessage(text){
         let date = new Date();
@@ -117,6 +121,8 @@ function Chat({UserName}){
         GetMessages().then(() => setMessages(mes));
         GetContacts().then(() => setCardsList(data));
     }
+
+
 
     function findIndexContact(){
         for(let x in cardsList){
@@ -174,7 +180,7 @@ function Chat({UserName}){
             <div className="row" id="ContactsRow">
                 <div className="col-xl-4 col-lg-4 col-sm-4 col-4" id="leftChat">
                     <div className="row">
-                     <NavBarChat doSearch={doSearch} cardsList={cardsList} UserName={UserName}/>
+                     <NavBarChat added={addedContact} cardsList={cardsList} UserName={UserName}/>
                     </div>
                     <div className="row">
                         <Chatusers cardsList={cardsList} chooseContact={chooseContact} />

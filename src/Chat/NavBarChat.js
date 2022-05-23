@@ -4,47 +4,49 @@ import React from 'react';
 import 'bootstrap';
 import ChatUSerCard from './chatUserCard';
 import Chat from './Chat';
-function NavBarChat({doSearch, UserName, cardsList}){
-    var data = null;
-    async function isuserExist(){
-        const res = await fetch("https://localhost:7227/api/Users?username=" + UserName,{
-        method: 'GET',
+function NavBarChat({added ,UserName, cardsList}){
+
+    async function AddContactToServer(username, nickname, server){
+        const res = await fetch("https://localhost:7227/api/contacts?username=" + UserName,{
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
           'Access-Control-Allow-Credentials' : "*"
         },
-       // mode: "no-cors",
+        mode: "cors",
+        body: JSON.stringify({
+            id: username,
+            name: nickname,
+            server: server,
+            last: "",
+            lastdate: "",
+            Messages: []
+        })
       })
-      data = await res.json();
-    };
-    const addContact = function (event) {
+    }
+
+    const addContact = async function (event) {
+
         event.preventDefault()
         let username = document.getElementById('floatingInput').value;
-        //let user = (dataBase.getUserByUserName(username));
-        isuserExist();
-        const user = data;
+        let nickName = document.getElementById('contactNickName').value;
+        let server = document.getElementById('contactServer').value;
+      
         var alertPlaceholder = document.getElementById('liveAlertPlaceholder');
         var alertTrigger = document.getElementById('sign');
+
         function Alert(message, type) {
             $('div').remove("#liveAlertPlaceholder div");
             var wrapper = document.createElement('div')
             wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
             alertPlaceholder.append(wrapper);
         }
-        if (user) {
-            let img = user.image;
-            let nickname = user.nickName;
-            let last="";
-            let lastdate="";
-            let server="localhost:7227"
-            var valid=JSON.stringify(cardsList).includes(nickname) && JSON.stringify(cardsList).includes(img);
-            if(!valid){
-            doSearch(nickname, img,last,lastdate,server)
+
+        await AddContactToServer(username, nickName, server);
+        added();
+        if (username && cardsList.find(x => x.id == username) == null) {
             setTimeout( function ( ) { Alert( 'You have added a contact successfully','success' ); }, 0 );
-            }else{
-                setTimeout(function () { Alert('User not found/already added', 'danger'); }, 0);
-            }
         } else {
             setTimeout(function () { Alert('User not found/already added', 'danger'); }, 0);
         }
@@ -80,8 +82,18 @@ function NavBarChat({doSearch, UserName, cardsList}){
                                                 
                                                 <div className="form-floating mb-3">
                                               
+                                                    <input type="text" className="form-control" id="contactNickName" placeholder="nickname"></input>
+                                                    <label htmlFor="floatingInput">Contact's Identifier - Nickname</label>
+                                                </div>
+                                                <div className="form-floating mb-3">
+                                              
                                                     <input type="text" className="form-control" id="floatingInput" placeholder="nickname"></input>
-                                                    <label htmlFor="floatingInput">Contact's Identifier</label>
+                                                    <label htmlFor="floatingInput">Contact's Identifier - Username</label>
+                                                </div>
+                                                <div className="form-floating mb-3">
+                                              
+                                                    <input type="text" className="form-control" id="contactServer" placeholder="nickname"></input>
+                                                    <label htmlFor="floatingInput">Contact's Server</label>
                                                 </div>
                                                 <div id="liveAlertPlaceholder"></div>
                                             </div>
