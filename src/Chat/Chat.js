@@ -6,10 +6,9 @@ import Chatusers from "./Chatusers";
 import React,{useState, useEffect} from 'react'
 import InputMessage from "./InputMessage";
 import MessageBox from "./MessageBox";
+import { HubConnectionBuilder } from '@microsoft/signalr';
 
 function Chat({UserName}){
-
-    
 
     var data = null; 
     var mes = null;
@@ -17,8 +16,38 @@ function Chat({UserName}){
     useEffect(() =>
     {if (UserName == '') navigate("/")}
     );
-  
-    //alert(JSON.stringify(data));
+///////////////////////////////////////////////////////
+    const [ connection, setConnection ] = useState(null);
+
+    useEffect(() => {
+        const newConnection = new HubConnectionBuilder()
+            .withUrl('https://localhost:7227/hubs/chatHub')
+            .withAutomaticReconnect()
+            .build();
+
+        setConnection(newConnection);
+    }, []);
+
+    const sendMessagehub = async (user, message) => {
+        const chatMessage = {
+            user: user,
+            message: message
+        };
+
+        if (connection.connectionStarted) {
+            try {
+                await connection.send('SendMessage', chatMessage);
+            }
+            catch(e) {
+                console.log(e);
+            }
+        }
+        else {
+            alert('No connection to server yet.');
+        }
+    }
+ /////////////////////////////////////////////////// 
+    
     var navigate = useNavigate();
         if (UserName == '' || UserName == null){
             navigate('/');
