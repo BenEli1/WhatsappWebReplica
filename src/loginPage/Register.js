@@ -19,8 +19,31 @@ function Register({change}){
     }*/
 
     var navigate = useNavigate();
+    var isUSerExist;
 
-    async function internSession(username){
+    async function isuserExist(username){
+        const res = await fetch("https://localhost:7227/api/Users", {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Access-Control-Allow-Credentials' : "*"
+        },
+       // mode: "no-cors",
+      });
+    
+      const data = await res.json();
+      for(var i in data){
+        if(data[i]["userName"] === username){
+          isUSerExist = 1;
+          return 1;
+        }
+      }
+      isUSerExist = 0;
+      return 0;
+      }
+
+    /*async function internSession(username){
     
         const res = await fetch('https://localhost:7227/api/contacts/Login', {
           method: 'POST',
@@ -32,9 +55,9 @@ function Register({change}){
           mode: 'cors',
           body: JSON.stringify({username: username})
         })
-      }
+      }*/
 
-    function signUp(event){
+    async function signUp(event){
         //get the form
         event.preventDefault();
         $('div').remove("#invalidInput div");
@@ -47,7 +70,7 @@ function Register({change}){
         let image = form.elements['imageFromUser'].value
         let image2= form.elements['imageFromUser'].files[0]
         const url2 = URL.createObjectURL(image2);
-
+        await isuserExist(userName);
         //check validation
         if(!isUserNameValid(userName)){
             $('#invalidInput').append(invalidInput("Username", "The username must be at least 3 characters long"));
@@ -69,6 +92,12 @@ function Register({change}){
         if(!isImageValid(image)){
             event.preventDefault();
             $('#invalidInput').append(invalidInput("Photo", "The file inserted is not an image"));
+            return;
+        }
+
+        if (isUSerExist) {
+            $('#invalidInput').append(invalidInput("Username", "The username already exists"));
+            event.preventDefault();
             return;
         }
 

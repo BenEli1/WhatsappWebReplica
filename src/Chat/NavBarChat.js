@@ -40,11 +40,12 @@ function NavBarChat({AddContactToServer ,added ,UserName, cardsList}){
             alertPlaceholder.append(wrapper);
         }
 
-        await AddContactToServer(username, nickName, server);
-        await SendInvitation(username, server);
+
         added();
         if (username && cardsList.find(x => x.id == username) == null) {
             setTimeout( function ( ) { Alert( 'You have added a contact successfully','success' ); }, 0 );
+            await AddContactToServer(username, nickName, server);
+            await SendInvitation(username, server);
         } else {
             setTimeout(function () { Alert('User not found/already added', 'danger'); }, 0);
         }

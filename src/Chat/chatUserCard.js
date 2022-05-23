@@ -12,7 +12,7 @@ function ChatUSerCard({id, chooseContact, last, lastdate,name,server}){
         <div onClick={changeContact} className="btn-outline-light chat_list border-dark">
             <div className="chat_people row">
                 <div className="col-md-2 col-1"> 
-                    <img src={""} className="imgChat rounded-circle img-fluid"></img>
+                    <img src={"thor.jpg"} className="imgChat rounded-circle img-fluid"></img>
                 </div>
                 
                 <div className="chat_ib col-md-10">

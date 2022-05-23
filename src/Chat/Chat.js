@@ -3,7 +3,7 @@ import NavBarChat from "./NavBarChat";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import $ from "jquery";
 import Chatusers from "./Chatusers";
-import React,{useState, useEffect} from 'react'
+import React,{useState, useEffect,useRef} from 'react'
 import InputMessage from "./InputMessage";
 import MessageBox from "./MessageBox";
 import { HubConnectionBuilder } from '@microsoft/signalr';
@@ -50,24 +50,35 @@ try {
     console.error(err);
 }
 }
-useEffect(()=>{
-    connection.on("ReceiveMessage", (user,contact, message) => {
-        if(user==UserName){
-            addPostMessage(message,contact,"false");
-            GetMessages().then(() => setMessages(mes));
-        GetContacts().then(() => setCardsList(data));
+    const mounted = useRef();
+    const mounted2 = useRef();
+    useEffect(() => {
+        if (!mounted.current) {
+            connection.on("ReceiveMessage", (user, contact, message) => {
+                if (user == UserName) {
+                    addPostMessage(message, contact, "false");
+                    GetMessages().then(() => setMessages(mes));
+                    GetContacts().then(() => setCardsList(data));
+                }
+                
+
+            });
+            mounted.current = true;
         }
-        
-    });
-},[]);
+    }, []);
 
 useEffect(()=>{
     connection.on("ReceiveContact", (user,contact, server) => {
+        if (!mounted2.current) {
+
         if(user==UserName){
             AddContactToServer(contact,contact,server);
             GetContacts().then(() => setCardsList(data));
         }
-        
+        mounted2.current = true;
+
+    }
+
     });
 },[]);
 
