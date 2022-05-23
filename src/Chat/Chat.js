@@ -52,6 +52,11 @@ function Chat({UserName}){
         }
     })
 
+    function getServer(){
+        var card = cardsList.find(x => x.id == contact);
+        return card.server;
+    }
+
     /*public string id { get; set; }
     public string name { get; set; }
     public string server { get; set; }
@@ -89,8 +94,26 @@ function Chat({UserName}){
         //data = await res.json();
     }
 
+    async function transferMessage(text){
+        const res = await fetch('https://' + getServer() + '/api/transfer', {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Credentials': '*'
+            },
+            mode: 'cors',
+            body: JSON.stringify({
+              from: UserName,
+              to: contact,
+              content: text 
+          })
+          })
+    }
+
     const addMessage = async function(text, type){
         await addPostMessage(text);
+        await transferMessage(text);
         GetMessages().then(() => setMessages(mes));
         GetContacts().then(() => setCardsList(data));
     }
