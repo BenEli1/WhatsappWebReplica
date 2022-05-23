@@ -76,6 +76,7 @@ function Chat({UserName}){
 
     const chooseContact = function(contact){
         setContact(contact);
+        GetMessages().then(() => setMessages(mes));
         setChangeState(!changeState);
     }
 
