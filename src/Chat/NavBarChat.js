@@ -4,27 +4,7 @@ import React from 'react';
 import 'bootstrap';
 import ChatUSerCard from './chatUserCard';
 import Chat from './Chat';
-function NavBarChat({added ,UserName, cardsList}){
-
-    async function AddContactToServer(username, nickname, server){
-        const res = await fetch("https://localhost:7227/api/contacts?username=" + UserName,{
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Access-Control-Allow-Credentials' : "*"
-        },
-        mode: "cors",
-        body: JSON.stringify({
-            id: username,
-            name: nickname,
-            server: server,
-            last: "",
-            lastdate: "",
-            Messages: []
-        })
-      })
-    }
+function NavBarChat({AddContactToServer ,added ,UserName, cardsList}){
 
     async function SendInvitation(username, server){
         const res = await fetch("https://" + server + "/api/invitations", {
