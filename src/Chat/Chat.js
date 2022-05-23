@@ -35,9 +35,9 @@ async function start() {
     }
 };
 
-connection.onclose(async () => {
+/*connection.onclose(async () => {
     await start();
-});
+});*/
 
 // Start the connection.
 
@@ -68,18 +68,18 @@ try {
     }, []);
 
     useEffect(() => {
-        connection.on("ReceiveContact", async (user, contact, server) => {
-            if (!mounted2.current) {
-
+        if (!mounted2.current) {
+            connection.on("ReceiveContact", async (user, contact, server) => {
                 if (user == UserName) {
                     await AddContactToServer(contact, contact, server);
                     await GetContacts().then(() => setCardsList(data));
                 }
-                mounted2.current = true;
 
-            }
 
-        });
+            });
+         mounted2.current = true;
+        }
+
     }, []);
 
 async function AddContactToServer(username, nickname, server){

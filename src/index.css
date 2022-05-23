@@ -93,7 +93,7 @@ body, html {
 }
 
 #inputMessage{
-  max-width: 63%;
+  max-width: 55%;
   position:fixed;
   bottom: 0px;
 }
