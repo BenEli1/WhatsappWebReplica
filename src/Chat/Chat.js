@@ -35,52 +35,52 @@ async function start() {
     }
 };
 
-//connection.onclose(async () => {
-  //  await start();
-//});
+connection.onclose(async () => {
+    await start();
+});
 
 // Start the connection.
 
 start();
 
-async function sendMessagehub(user,contact,message){
+/*async function sendMessagehub(user,contact,message){
 try {
     await connection.invoke("SendMessage", user,contact, message);
 } catch (err) {
     console.error(err);
 }
-}
+}*/
     const mounted = useRef();
     const mounted2 = useRef();
     useEffect(() => {
         if (!mounted.current) {
-            connection.on("ReceiveMessage", (user, contact, message) => {
+            connection.on("ReceiveMessage", async (user, contact, message) => {
                 if (user == UserName) {
-                    addPostMessage(message, contact, "false");
-                    GetMessages().then(() => setMessages(mes));
-                    GetContacts().then(() => setCardsList(data));
+                    await addPostMessage(message, contact, "false");
+                    await GetMessages().then(() => setMessages(mes));
+                    await GetContacts().then(() => setCardsList(data));
                 }
-                
+
 
             });
             mounted.current = true;
         }
     }, []);
 
-useEffect(()=>{
-    connection.on("ReceiveContact", (user,contact, server) => {
-        if (!mounted2.current) {
+    useEffect(() => {
+        connection.on("ReceiveContact", async (user, contact, server) => {
+            if (!mounted2.current) {
 
-        if(user==UserName){
-            AddContactToServer(contact,contact,server);
-            GetContacts().then(() => setCardsList(data));
-        }
-        mounted2.current = true;
+                if (user == UserName) {
+                    await AddContactToServer(contact, contact, server);
+                    await GetContacts().then(() => setCardsList(data));
+                }
+                mounted2.current = true;
 
-    }
+            }
 
-    });
-},[]);
+        });
+    }, []);
 
 async function AddContactToServer(username, nickname, server){
     const res = await fetch("https://localhost:7227/api/contacts?username=" + UserName,{
@@ -100,49 +100,9 @@ async function AddContactToServer(username, nickname, server){
         Messages: []
     })
   })
+  await GetContacts().then(() => 
+        setCardsList(data));
 }
-
-
-
-
-
-
-
-
-
-
-
-///////////////////////////////////////////////////////
-   /* const [ connection, setConnection ] = useState(null);
-
-    useEffect(() => {
-        const newConnection = new HubConnectionBuilder()
-            .withUrl('https://localhost:7227/hubs/chatHub')
-            .withAutomaticReconnect()
-            .build();
-
-        setConnection(newConnection);
-    }, []);
-
-    const sendMessagehub = async (user, message) => {
-        const chatMessage = {
-            user: user,
-            message: message
-        };
-
-        if (connection.connectionStarted) {
-            try {
-                await connection.send('SendMessage', chatMessage);
-            }
-            catch(e) {
-                console.log(e);
-            }
-        }
-        else {
-            alert('No connection to server yet.');
-        }
-    }*/
- /////////////////////////////////////////////////// 
     
     var navigate = useNavigate();
         if (UserName == '' || UserName == null){
@@ -246,16 +206,6 @@ async function AddContactToServer(username, nickname, server){
         await transferMessage(text);
         GetMessages().then(() => setMessages(mes));
         GetContacts().then(() => setCardsList(data));
-    }
-
-
-
-    function findIndexContact(){
-        for(let x in cardsList){
-            if(cardsList[x].nickName === contact){
-                return x;
-            }
-        }
     }
 
     function inputBox(){
