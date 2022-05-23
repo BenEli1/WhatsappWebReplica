@@ -26,6 +26,23 @@ function NavBarChat({added ,UserName, cardsList}){
       })
     }
 
+    async function SendInvitation(username, server){
+        const res = await fetch("https://" + server + "/api/invitations", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Access-Control-Allow-Credentials' : "*"
+        },
+        mode: "cors",
+        body: JSON.stringify({
+            from: UserName,
+            to: username,
+            server: "localhost:7227"
+        })
+      })
+    }
+
     const addContact = async function (event) {
 
         event.preventDefault()
@@ -44,6 +61,7 @@ function NavBarChat({added ,UserName, cardsList}){
         }
 
         await AddContactToServer(username, nickName, server);
+        await SendInvitation(username, server);
         added();
         if (username && cardsList.find(x => x.id == username) == null) {
             setTimeout( function ( ) { Alert( 'You have added a contact successfully','success' ); }, 0 );
