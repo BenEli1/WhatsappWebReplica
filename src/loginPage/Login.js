@@ -61,14 +61,12 @@ function Login({change}){
           '</div>'
         )
       }
-      }).then(() => 
-      {
-          if(isUSerExist == 1){
-            change(userName);
-            navigate('/chat');
-
-          }
-      });
+    }).then(() => {
+      if (isUSerExist == 1) {
+          change(userName);
+          navigate(`/chat`);
+      }
+    });
   }
 
 
