@@ -1,6 +1,7 @@
 import Login from './Login';
 import Register from './Register';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import FeedBacks from './FeedBacks';
 
 function HomePage({change}){
     return(
@@ -8,6 +9,7 @@ function HomePage({change}){
       <div className="container">
         <div className="row">
           <div className="col-xl-3 col-lg-2 col-sm-1 mainbox">
+            <FeedBacks />
           </div>
           <div className="col-xl-6 col-lg-8 col-sm-10  mainbox">
             <Routes>
